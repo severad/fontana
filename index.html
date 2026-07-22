@@ -1,1 +1,558 @@
+<!DOCTYPE html>
+<html lang="cs" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Ubytování Náměšť nad Oslavou | Penzion Fontána</title>
+    <meta name="description" content="Zažijte prémiové ubytování v Náměšti nad Oslavou. Penzion Fontána nabízí nově zrekonstruované (2025) pokoje a apartmány pro váš dokonalý odpočinek.">
+    <meta name="keywords" content="ubytování Náměšť, ubytování Náměšť nad Oslavou, penzion Náměšť, penzion Náměšť nad Oslavou, apartmány Náměšť, Folkové prázdniny ubytování">
+    
+    <!-- Prémiové Fonty: Jost (moderní geometrický) pro nadpisy, Manrope (čistý) pro texty -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Ikonky (Phosphor Icons - tentokrát ve verzi 'light' pro jemnější vzhled) -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
+    <!-- Tailwind CSS (Boutique Hotel konfigurace) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Manrope"', 'sans-serif'],
+                        display: ['"Jost"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            bg: '#F9F8F6',      // Teplá lněná barva pozadí
+                            dark: '#1C1C1A',    // Skoro černá pro maximální kontrast
+                            accent: '#A68A61',  // Tlumená bronzová/zlatá
+                            muted: '#E5E3DB',   // Jemná barva pro ohraničení
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: theme('colors.brand.bg');
+            color: theme('colors.brand.dark');
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Elegantní scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: theme('colors.brand.bg'); }
+        ::-webkit-scrollbar-thumb { background: theme('colors.brand.accent'); }
+
+        /* Animace zjevení (Fade-in-up) - jemnější a pomalejší než průměrné AI */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Zástupný prázdný blok s křížkem simulující chybějící fotku, mnohem elegantnější */
+        .img-placeholder {
+            background-color: #EFEFEF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #C0C0C0;
+            position: relative;
+        }
+        .img-placeholder::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to bottom, transparent, rgba(28, 28, 26, 0.4));
+        }
+
+        /* Navigace při scrollování */
+        .nav-scrolled {
+            background-color: rgba(249, 248, 246, 0.98);
+            box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+            padding-top: 1rem !important;
+            padding-bottom: 1rem !important;
+        }
+        .nav-scrolled .nav-text {
+            color: theme('colors.brand.dark') !important;
+        }
+        
+        /* Custom podtržení pro odkazy */
+        .link-underline {
+            position: relative;
+        }
+        .link-underline::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 1px;
+            bottom: -4px;
+            left: 0;
+            background-color: theme('colors.brand.accent');
+            transform-origin: bottom right;
+            transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+        }
+        .link-underline:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LodgingBusiness",
+      "name": "Penzion Fontána",
+      "description": "Zrekonstruovaný penzion v Náměšti nad Oslavou. Pokoje a apartmány s vlastním zázemím.",
+      "image": "img/penzion-fontana-ubytovani-namest-nad-oslavou.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Brněnská 594",
+        "addressLocality": "Náměšť nad Oslavou",
+        "postalCode": "675 71",
+        "addressCountry": "CZ"
+      },
+      "telephone": "+420123456789"
+    }
+    </script>
+</head>
+
+<body class="selection:bg-brand-accent selection:text-white">
+
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-6">
+        <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+            
+            <!-- Levý sloupec: Logo -->
+            <div class="w-1/3 text-left">
+                <a href="#home" class="nav-text text-white font-display text-3xl font-semibold tracking-wider transition-colors duration-300">
+                    Fontána.
+                </a>
+            </div>
+
+            <!-- Prostřední sloupec: Menu -->
+            <div class="w-1/3 hidden lg:flex justify-center gap-10">
+                <a href="#ubytovani" class="nav-text text-white font-sans text-xs uppercase tracking-[0.2em] link-underline transition-colors duration-300">Ubytování</a>
+                <a href="#galerie" class="nav-text text-white font-sans text-xs uppercase tracking-[0.2em] link-underline transition-colors duration-300">Galerie</a>
+                <a href="#okoli" class="nav-text text-white font-sans text-xs uppercase tracking-[0.2em] link-underline transition-colors duration-300">Okolí</a>
+            </div>
+
+            <!-- Pravý sloupec: Telefon -->
+            <div class="w-1/3 hidden lg:flex justify-end">
+                <a href="tel:+420123456789" class="nav-text text-white font-sans text-sm tracking-widest hover:text-brand-accent transition-colors duration-300 flex items-center gap-2">
+                    <i class="ph-light ph-phone"></i>
+                    +420 123 456 789
+                </a>
+            </div>
+            
+            <!-- Mobilní ikona (Hamburger) -->
+            <button id="mobile-menu-btn" class="lg:hidden nav-text text-white text-2xl z-[60]">
+                <i class="ph-light ph-list"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div id="mobile-menu" class="fixed inset-0 bg-brand-bg z-[55] flex flex-col items-center justify-center translate-x-full transition-transform duration-500">
+        <div class="flex flex-col items-center gap-8 text-center">
+            <a href="#ubytovani" class="mobile-link text-3xl font-display">Ubytování</a>
+            <a href="#galerie" class="mobile-link text-3xl font-display">Galerie</a>
+            <a href="#okoli" class="mobile-link text-3xl font-display">Náměšť a okolí</a>
+            <a href="#kontakt" class="mobile-link text-3xl font-display">Kontakt</a>
+            
+            <div class="mt-8 pt-8 border-t border-brand-muted w-32 flex flex-col items-center">
+                <p class="text-xs uppercase tracking-widest text-gray-500 mb-2">Rezervace</p>
+                <a href="tel:+420123456789" class="text-xl font-sans">+420 123 456 789</a>
+            </div>
+        </div>
+    </div>
+
+    <header id="home" class="relative h-screen w-full flex items-center justify-center overflow-hidden">
+        <!-- Slider Images -->
+        <div id="hero-slider" class="absolute inset-0 z-0">
+            <div class="absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-100 slide bg-cover bg-center" style="background-image: url('img/penzion-fontana-ubytovani-namest-nad-oslavou.jpg');">
+                <div class="absolute inset-0 bg-black/40"></div>
+            </div>
+            <div class="absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 slide bg-cover bg-center" style="background-image: url('img/zrekonstruovany-pokoj-penzion-namest.jpg');">
+                <div class="absolute inset-0 bg-black/40"></div>
+            </div>
+            <div class="absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 slide bg-cover bg-center" style="background-image: url('img/apartman-ubytovani-namest-nad-oslavou.jpg');">
+                <div class="absolute inset-0 bg-black/40"></div>
+            </div>
+        </div>
+
+        <!-- Elegantní text uprostřed -->
+        <div class="relative z-10 w-full max-w-5xl mx-auto px-6 text-center mt-16">
+            <p class="text-brand-accent uppercase tracking-[0.3em] text-xs font-bold mb-6 reveal">Zrekonstruováno 2025</p>
+            <h1 class="font-display text-6xl md:text-8xl font-medium leading-none mb-8 text-white reveal" style="transition-delay: 100ms;">
+                Klid a odpočinek<br>
+                <span class="font-light text-brand-muted">v srdci Náměště.</span>
+            </h1>
+            <p class="text-lg text-gray-300 max-w-xl mx-auto font-light reveal" style="transition-delay: 200ms;">
+                Spojili jsme historický odkaz města s moderním komfortem. Penzion Fontána nabízí prémiové pokoje a apartmány pro váš pobyt.
+            </p>
+        </div>
+
+        <!-- Minimalistické ovládání dole (čárky) -->
+        <div class="absolute bottom-12 left-0 w-full z-20 px-6 flex justify-center gap-4">
+            <button class="w-16 h-px bg-white transition-all slider-dot opacity-100"></button>
+            <button class="w-16 h-px bg-white transition-all slider-dot opacity-30"></button>
+            <button class="w-16 h-px bg-white transition-all slider-dot opacity-30"></button>
+        </div>
+    </header>
+
+    <section id="ubytovani" class="py-32 px-6">
+        <div class="max-w-6xl mx-auto">
+            
+            <div class="text-center mb-24 reveal">
+                <h2 class="font-display text-4xl md:text-5xl mb-6">Pokoje & Apartmány</h2>
+                <div class="w-px h-16 bg-brand-accent mx-auto"></div>
+            </div>
+
+            <!-- Pokoje - obraz vlevo, text vpravo (velkorysý prostor) -->
+            <div class="flex flex-col md:flex-row items-center gap-12 md:gap-24 mb-32 reveal">
+                <div class="w-full md:w-1/2 aspect-[4/5] bg-gray-200 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-cover bg-center hover:scale-105 transition-transform duration-700" style="background-image: url('img/zrekonstruovany-pokoj-penzion-namest.jpg');"></div>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <p class="text-brand-accent text-sm uppercase tracking-widest mb-4">4x K dispozici</p>
+                    <h3 class="font-display text-4xl mb-6">Komfortní Pokoj</h3>
+                    <p class="text-gray-600 font-light leading-relaxed mb-8 text-lg">
+                        Prosvětlený, do detailu promyšlený prostor ideální pro páry i jednotlivce. Standard, který převyšuje očekávání z běžné ubytovny a nabízí klidné útočiště s vůní novoty po dni stráveném ve městě.
+                    </p>
+                    <ul class="space-y-4 text-gray-800 font-light">
+                        <li class="flex items-center gap-4 border-b border-brand-muted pb-3">
+                            <i class="ph-light ph-shower text-xl text-brand-accent"></i> 
+                            Vlastní koupelna se sprchovým koutem
+                        </li>
+                        <li class="flex items-center gap-4 border-b border-brand-muted pb-3">
+                            <i class="ph-light ph-snowflake text-xl text-brand-accent"></i> 
+                            Lednice na pokoji
+                        </li>
+                        <li class="flex items-center gap-4 border-b border-brand-muted pb-3">
+                            <i class="ph-light ph-cooking-pot text-xl text-brand-accent"></i> 
+                            Přístup do plně vybavené sdílené kuchyně
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Apartmány - obraz vpravo, text vlevo -->
+            <div class="flex flex-col md:flex-row-reverse items-center gap-12 md:gap-24 reveal">
+                <div class="w-full md:w-1/2 aspect-[4/5] bg-gray-200 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-cover bg-center hover:scale-105 transition-transform duration-700" style="background-image: url('img/apartman-ubytovani-namest-nad-oslavou.jpg');"></div>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <p class="text-brand-accent text-sm uppercase tracking-widest mb-4">4x K dispozici</p>
+                    <h3 class="font-display text-4xl mb-6">Prostorný Apartmán</h3>
+                    <p class="text-gray-600 font-light leading-relaxed mb-8 text-lg">
+                        Hledáte naprosté soukromí pro rodinu nebo delší pobyt? Naše apartmány poskytují štědrý prostor kombinující stylový obývací prostor s vlastním plnohodnotným zázemím.
+                    </p>
+                    <ul class="space-y-4 text-gray-800 font-light">
+                        <li class="flex items-center gap-4 border-b border-brand-muted pb-3">
+                            <i class="ph-light ph-bathtub text-xl text-brand-accent"></i> 
+                            Vlastní nadstandardní koupelna
+                        </li>
+                        <li class="flex items-center gap-4 border-b border-brand-muted pb-3">
+                            <i class="ph-light ph-knife text-xl text-brand-accent"></i> 
+                            Vlastní zařízená kuchyňka
+                        </li>
+                        <li class="flex items-center gap-4 border-b border-brand-muted pb-3">
+                            <i class="ph-light ph-armchair text-xl text-brand-accent"></i> 
+                            Oddělený obytný prostor
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="py-20 border-t border-b border-brand-muted bg-white px-6">
+        <div class="max-w-6xl mx-auto flex flex-col lg:flex-row justify-between items-center gap-12 reveal">
+            <div class="text-center lg:text-left w-full lg:w-auto">
+                <h3 class="font-display text-3xl mb-2">Všude kousek.</h3>
+                <p class="text-gray-500 font-light">Penzion se nachází v ideální lokalitě pro pěší dostupnost.</p>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-12 sm:gap-16 w-full lg:w-auto">
+                <!-- Penny -->
+                <div class="flex flex-col items-center group cursor-default">
+                    <i class="ph-light ph-shopping-bag text-brand-accent text-4xl mb-3 transition-transform duration-500 group-hover:-translate-y-2"></i>
+                    <span class="block text-brand-dark font-display text-3xl mb-1">5 min</span>
+                    <span class="uppercase tracking-widest text-xs font-semibold text-gray-500">Penny Market</span>
+                </div>
+                
+                <div class="hidden sm:block w-px bg-brand-muted h-16"></div>
+                
+                <!-- Kavárna -->
+                <div class="flex flex-col items-center group cursor-default">
+                    <i class="ph-light ph-coffee text-brand-accent text-4xl mb-3 transition-transform duration-500 group-hover:-translate-y-2"></i>
+                    <span class="block text-brand-dark font-display text-3xl mb-1">5 min</span>
+                    <span class="uppercase tracking-widest text-xs font-semibold text-gray-500">Kavárna Café 1924</span>
+                </div>
+                
+                <div class="hidden sm:block w-px bg-brand-muted h-16"></div>
+                
+                <!-- Centrum -->
+                <div class="flex flex-col items-center group cursor-default">
+                    <i class="ph-light ph-buildings text-brand-accent text-4xl mb-3 transition-transform duration-500 group-hover:-translate-y-2"></i>
+                    <span class="block text-brand-dark font-display text-3xl mb-1">5 min</span>
+                    <span class="uppercase tracking-widest text-xs font-semibold text-gray-500">Centrum města</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="galerie" class="py-32 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex justify-between items-end mb-16 reveal">
+                <h2 class="font-display text-4xl">Nahlédněte dovnitř</h2>
+                <a href="#kontakt" class="text-sm uppercase tracking-widest link-underline hidden sm:block">Rezervovat pokoj</a>
+            </div>
+
+            <!-- Čistý Grid, žádné umělé stíny -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-1">
+                <div class="aspect-square bg-gray-100 cursor-pointer group relative overflow-hidden lightbox-trigger reveal" data-image="img/zrekonstruovany-pokoj-penzion-namest.jpg">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-[1.5s] group-hover:scale-105" style="background-image: url('img/zrekonstruovany-pokoj-penzion-namest.jpg');"></div>
+                    <div class="absolute inset-0 bg-brand-dark/0 group-hover:bg-brand-dark/20 transition-colors duration-500"></div>
+                </div>
+                <div class="aspect-square bg-gray-100 cursor-pointer group relative overflow-hidden lightbox-trigger reveal" data-image="img/apartman-ubytovani-namest-nad-oslavou.jpg" style="transition-delay: 100ms;">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-[1.5s] group-hover:scale-105" style="background-image: url('img/apartman-ubytovani-namest-nad-oslavou.jpg');"></div>
+                    <div class="absolute inset-0 bg-brand-dark/0 group-hover:bg-brand-dark/20 transition-colors duration-500"></div>
+                </div>
+                <div class="aspect-square bg-gray-100 cursor-pointer group relative overflow-hidden lightbox-trigger reveal sm:col-span-2 lg:col-span-1" data-image="img/spolecna-kuchyne-ubytovna-namest.jpg" style="transition-delay: 200ms;">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-[1.5s] group-hover:scale-105" style="background-image: url('img/spolecna-kuchyne-ubytovna-namest.jpg');"></div>
+                    <div class="absolute inset-0 bg-brand-dark/0 group-hover:bg-brand-dark/20 transition-colors duration-500"></div>
+                </div>
+                <div class="aspect-square bg-gray-100 cursor-pointer group relative overflow-hidden lightbox-trigger reveal sm:col-span-2 lg:col-span-2" data-image="img/koupelna-penzion-namest.jpg">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-[1.5s] group-hover:scale-105" style="background-image: url('img/koupelna-penzion-namest.jpg');"></div>
+                    <div class="absolute inset-0 bg-brand-dark/0 group-hover:bg-brand-dark/20 transition-colors duration-500"></div>
+                </div>
+                 <div class="aspect-square bg-gray-100 cursor-pointer group relative overflow-hidden lightbox-trigger reveal sm:col-span-1 lg:col-span-1" data-image="img/penzion-fontana-ubytovani-namest-nad-oslavou.jpg">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-[1.5s] group-hover:scale-105" style="background-image: url('img/penzion-fontana-ubytovani-namest-nad-oslavou.jpg');"></div>
+                    <div class="absolute inset-0 bg-brand-dark/0 group-hover:bg-brand-dark/20 transition-colors duration-500"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="okoli" class="py-32 px-6 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-24 reveal">
+                <h2 class="font-display text-4xl mb-4">Život v Náměšti</h2>
+                <p class="text-gray-500 font-light max-w-xl mx-auto">Ubytování u nás není jen o přespání. Jsme skvělým výchozím bodem k těm nejlepším akcím v okolí.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-16">
+                <!-- Akce 1 -->
+                <div class="group reveal">
+                    <div class="aspect-[4/3] overflow-hidden mb-8 bg-gray-100">
+                        <div class="w-full h-full bg-cover bg-center transition-transform duration-[2s] group-hover:scale-105" style="background-image: url('img/folkove-prazdniny-namest-nad-oslavou-akce.jpg');"></div>
+                    </div>
+                    <p class="text-brand-accent text-xs uppercase tracking-widest mb-3">Kulturní událost roku</p>
+                    <h3 class="font-display text-3xl mb-4">Folkové prázdniny</h3>
+                    <p class="text-gray-600 font-light leading-relaxed">Osmi denní hudební festival plný koncertů, divadel a workshopů. Náš penzion Náměšť bývá tou dobou rychle plný, nezapomeňte rezervovat ubytování s předstihem.</p>
+                </div>
+
+                <!-- Akce 2 -->
+                <div class="group reveal" style="transition-delay: 200ms;">
+                    <div class="aspect-[4/3] overflow-hidden mb-8 bg-gray-100">
+                        <div class="w-full h-full bg-cover bg-center transition-transform duration-[2s] group-hover:scale-105" style="background-image: url('img/den-otevrenych-dveri-letiste-namest.jpg');"></div>
+                    </div>
+                    <p class="text-brand-accent text-xs uppercase tracking-widest mb-3">Armádní akce</p>
+                    <h3 class="font-display text-3xl mb-4">Den otevřených dveří letiště</h3>
+                    <p class="text-gray-600 font-light leading-relaxed">Fascinují vás vrtulníky a letadla? Vojenská základna pravidelně otevírá své brány veřejnosti s úžasnými ukázkami. Jsme ideální základna pro tuto akci.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="kontakt" class="bg-brand-dark text-white pt-32 pb-16 px-6">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between gap-16 mb-24 reveal">
+            
+            <div class="md:w-1/2">
+                <h2 class="font-display text-5xl md:text-6xl mb-6">Čekáme na<br>váš příjezd.</h2>
+                <p class="text-gray-400 font-light max-w-sm text-lg">Zavolejte nám nebo napište pro ověření dostupnosti na váš vybraný termín.</p>
+            </div>
+
+            <div class="md:w-1/2 flex flex-col sm:flex-row gap-12 sm:gap-24">
+                <div>
+                    <h4 class="text-brand-accent uppercase tracking-widest text-xs font-semibold mb-4">Rezervace</h4>
+                    <a href="tel:+420123456789" class="block text-2xl font-light hover:text-brand-accent transition-colors mb-2">+420 123 456 789</a>
+                    <a href="mailto:info@penzion-fontana.cz" class="block text-lg text-gray-400 hover:text-white transition-colors">info@penzion-fontana.cz</a>
+                </div>
+                <div>
+                    <h4 class="text-brand-accent uppercase tracking-widest text-xs font-semibold mb-4">Lokalita</h4>
+                    <p class="text-gray-400 font-light leading-relaxed">
+                        Brněnská 594<br>
+                        675 71 Náměšť nad Oslavou<br>
+                        Česká republika
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-6xl mx-auto border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500 uppercase tracking-widest">
+            <p>&copy; 2026 Penzion Fontána.</p>
+            <p>Všechna práva vyhrazena.</p>
+        </div>
+    </section>
+
+    <div id="lightbox" class="fixed inset-0 z-[100] bg-brand-dark/98 hidden flex-col items-center justify-center opacity-0 transition-opacity duration-500">
+        <button id="lightbox-close" class="absolute top-8 right-8 text-white/50 hover:text-white transition-colors">
+            <i class="ph-light ph-x text-3xl"></i>
+        </button>
+        <div class="relative w-full max-w-6xl px-4 flex items-center justify-center h-full">
+            <img id="lightbox-img" src="" alt="Zvětšená fotografie" class="max-h-[90vh] max-w-full object-contain drop-shadow-2xl">
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // Animace při rolování stránky
+            const reveals = document.querySelectorAll('.reveal');
+            const revealOnScroll = () => {
+                const windowHeight = window.innerHeight;
+                reveals.forEach((reveal) => {
+                    const elementTop = reveal.getBoundingClientRect().top;
+                    if (elementTop < windowHeight - 100) {
+                        reveal.classList.add('active');
+                    }
+                });
+            };
+            revealOnScroll();
+            window.addEventListener('scroll', revealOnScroll);
+
+            // Změna barvy navigace při scrollování
+            const navbar = document.getElementById('navbar');
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('nav-scrolled');
+                    mobileBtn.classList.remove('text-white');
+                    mobileBtn.classList.add('text-brand-dark');
+                } else {
+                    navbar.classList.remove('nav-scrolled');
+                    mobileBtn.classList.add('text-white');
+                    mobileBtn.classList.remove('text-brand-dark');
+                }
+            });
+
+            // Mobilní Menu Toggle
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+            let menuOpen = false;
+
+            mobileBtn.addEventListener('click', () => {
+                menuOpen = !menuOpen;
+                if(menuOpen) {
+                    mobileMenu.classList.remove('translate-x-full');
+                    mobileBtn.innerHTML = '<i class="ph-light ph-x"></i>';
+                    mobileBtn.classList.remove('text-white'); // Vynutí tmavou barvu křížku
+                    mobileBtn.classList.add('text-brand-dark');
+                } else {
+                    mobileMenu.classList.add('translate-x-full');
+                    mobileBtn.innerHTML = '<i class="ph-light ph-list"></i>';
+                    // Obnoví barvu hamburgeru podle scrollu
+                    if (window.scrollY < 50) {
+                        mobileBtn.classList.add('text-white');
+                        mobileBtn.classList.remove('text-brand-dark');
+                    }
+                }
+            });
+
+            // Zavření menu po kliknutí na odkaz
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    menuOpen = false;
+                    mobileMenu.classList.add('translate-x-full');
+                    mobileBtn.innerHTML = '<i class="ph-light ph-list"></i>';
+                });
+            });
+
+            // Slider Logika
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.slider-dot');
+            let currentSlide = 0;
+            let slideInterval;
+
+            const goToSlide = (index) => {
+                slides[currentSlide].classList.remove('opacity-100');
+                slides[currentSlide].classList.add('opacity-0');
+                dots[currentSlide].classList.remove('opacity-100');
+                dots[currentSlide].classList.add('opacity-30');
+                
+                currentSlide = (index + slides.length) % slides.length;
+                
+                slides[currentSlide].classList.remove('opacity-0');
+                slides[currentSlide].classList.add('opacity-100');
+                dots[currentSlide].classList.remove('opacity-30');
+                dots[currentSlide].classList.add('opacity-100');
+            };
+
+            const startSlider = () => {
+                slideInterval = setInterval(() => goToSlide(currentSlide + 1), 5000);
+            };
+            
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    clearInterval(slideInterval);
+                    goToSlide(index);
+                    startSlider();
+                });
+            });
+            startSlider();
+
+            // Lightbox Logika
+            const triggers = document.querySelectorAll('.lightbox-trigger');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxClose = document.getElementById('lightbox-close');
+
+            triggers.forEach(trigger => {
+                trigger.addEventListener('click', () => {
+                    const imgUrl = trigger.getAttribute('data-image');
+                    if (imgUrl) {
+                        lightboxImg.src = imgUrl;
+                        lightboxImg.style.display = 'block';
+                    }
+                    lightbox.classList.remove('hidden');
+                    setTimeout(() => lightbox.classList.remove('opacity-0'), 10);
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            const closeLightbox = () => {
+                lightbox.classList.add('opacity-0');
+                setTimeout(() => {
+                    lightbox.classList.add('hidden');
+                    document.body.style.overflow = '';
+                    lightboxImg.src = '';
+                }, 500);
+            };
+
+            lightboxClose.addEventListener('click', closeLightbox);
+            lightbox.addEventListener('click', (e) => {
+                if(e.target === lightbox || e.target.parentNode === lightbox) closeLightbox();
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) closeLightbox();
+            });
+        });
+    </script>
+</body>
+</html>
