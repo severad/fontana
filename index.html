@@ -6,7 +6,7 @@
     
     <!-- Špičkové SEO -->
     <title>Penzion Náměšť nad Oslavou | Ubytování Fontána</title>
-    <meta name="description" content="Hledáte ubytování Náměšť nad Oslavou? Náš zrekonstruovaný penzion Náměšť (2025) nabízí komfortní pokoje a apartmány s kuchyňkou. Vaše ideální ubytování.">
+    <meta name="description" content="Hledáte ubytování Náměšť nad Oslavou? Náš zrekonstruovaný (2025) penzion v Náměšti nad Oslavou – Fontána nabízí komfortní pokoje a apartmány s kuchyňkou. Vaše ideální ubytování.">
     <meta name="keywords" content="ubytování Náměšť, ubytování Náměšť nad Oslavou, penzion Náměšť, penzion Náměšť nad Oslavou, apartmány Náměšť, ubytovna Náměšť">
     <meta name="author" content="Penzion Fontána">
     
@@ -111,6 +111,30 @@
         #lightbox {
             z-index: 9999;
         }
+        
+        /* Asymetrický překryv pro sekci ubytování */
+        .card-overlap {
+            margin-top: -80px;
+            margin-left: -40px;
+            z-index: 10;
+        }
+        @media (max-width: 768px) {
+            .card-overlap {
+                margin-top: -40px;
+                margin-left: 0;
+            }
+        }
+        .card-overlap-reverse {
+            margin-top: -80px;
+            margin-right: -40px;
+            z-index: 10;
+        }
+        @media (max-width: 768px) {
+            .card-overlap-reverse {
+                margin-top: -40px;
+                margin-right: 0;
+            }
+        }
     </style>
 
     <!-- Schema.org pro fantastické lokální SEO -->
@@ -135,7 +159,7 @@
 </head>
 <body class="antialiased">
 
-    <!-- Navigace (Boutique styl, čiré pozadí na začátku) -->
+    <!-- Navigace (Boutique styl) -->
     <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-6 text-white" style="background-color: transparent;">
         <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
             <!-- Logo -->
@@ -180,6 +204,7 @@
         <div class="absolute inset-0 z-0 w-full h-full">
             <!-- Snímek 1 (Hlavní) -->
             <div class="carousel-slide active">
+                <!-- Ztmavení fotky na 50% pro lepší čitelnost textu bez použití glassmorphism panelu -->
                 <div class="absolute inset-0 bg-black/50 z-10"></div>
                 <img src="img/penzion-fontana-ubytovani-namest-nad-oslavou.jpg" alt="Penzion Fontána exteriér" class="w-full h-full object-cover">
             </div>
@@ -196,15 +221,21 @@
         </div>
 
         <!-- Čistý text uprostřed (bez boxu) -->
-        <div class="relative z-10 w-full max-w-5xl mx-auto px-6 text-center mt-16">
-            <!-- Ledově modrá barva pro Penzion Fontána (#8CB4D6) s ostřejším stínem -->
-            <h2 class="font-display text-3xl md:text-4xl text-[#8CB4D6] mb-4 reveal font-semibold" style="text-shadow: 0 2px 8px rgba(0,0,0,0.8);">Penzion Fontána</h2>
-            <h1 class="font-display text-5xl md:text-7xl font-medium leading-tight mb-8 text-white reveal" style="transition-delay: 100ms; text-shadow: 0 2px 15px rgba(0,0,0,0.6);">
+        <div class="relative z-10 w-full max-w-5xl mx-auto px-6 text-center mt-16 flex flex-col items-center">
+            <!-- Název Fontána (H2, decentnější stín) -->
+            <h2 class="font-display text-3xl md:text-4xl text-[#8CB4D6] mb-4 reveal font-semibold tracking-wide" style="text-shadow: 0 2px 4px rgba(0,0,0,0.8);">
+                Penzion Fontána
+            </h2>
+            
+            <!-- Hlavní nadpis H1 (Velký, dominantní, pro dokonalé SEO) -->
+            <h1 class="font-display text-5xl md:text-7xl font-medium leading-tight mb-8 text-white reveal" style="transition-delay: 100ms; text-shadow: 0 4px 12px rgba(0,0,0,0.6);">
                 Ubytování<br>
                 <span class="font-light text-gray-200">Náměšť nad Oslavou</span>
             </h1>
-            <p class="text-lg text-gray-200 max-w-xl mx-auto font-light reveal" style="transition-delay: 200ms; text-shadow: 0 2px 8px rgba(0,0,0,0.8);">
-                Nově zrekonstruovaný penzion Náměšť nad Oslavou (2025). Poskytujeme moderní zázemí a naprostý klid pro váš odpočinek.
+            
+            <!-- Text pod nadpisem -->
+            <p class="text-lg text-gray-200 max-w-2xl mx-auto font-light reveal" style="transition-delay: 200ms; text-shadow: 0 2px 6px rgba(0,0,0,0.8);">
+                Nově zrekonstruované pokoje a apartmány. Poskytujeme moderní zázemí a naprostý klid pro váš odpočinek.
             </p>
         </div>
 
@@ -231,24 +262,31 @@
             <i class="fa-solid fa-chevron-right text-xl"></i>
         </button>
     </header>
-
+    
+    <!-- Ubytování (Pokoje a Apartmány) -->
     <section id="ubytovani" class="py-32 px-6">
         <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-40 reveal">
+                <h2 class="font-display text-4xl md:text-5xl mb-4">Naše Pokoje</h2>
+                <div class="w-16 h-0.5 bg-brand-accent mx-auto"></div>
+            </div>
             
             <!-- Pokoj -->
-            <div class="flex flex-col md:flex-row items-center gap-16 mb-32 reveal">
-                <div class="w-full md:w-1/2">
-                    <div class="aspect-[4/3] bg-gray-200 overflow-hidden relative">
-                        <img src="img/zrekonstruovany-pokoj-penzion-namest.jpg" alt="Zrekonstruovaný pokoj penzion Náměšť" class="absolute inset-0 w-full h-full object-cover">
+            <div class="flex flex-col md:flex-row items-center mb-32 reveal">
+                <div class="w-full md:w-7/12 relative">
+                    <!-- Jemný stín pod fotkou pro oddělení od pozadí -->
+                    <div class="aspect-[4/3] bg-gray-200 overflow-hidden shadow-xl">
+                        <img src="img/zrekonstruovany-pokoj-penzion-namest.jpg" alt="Zrekonstruovaný pokoj penzion Náměšť" class="w-full h-full object-cover">
                     </div>
                 </div>
-                <div class="w-full md:w-1/2">
-                    <p class="text-brand-accent text-sm uppercase tracking-widest mb-4">4x K dispozici</p>
-                    <h3 class="font-display text-4xl mb-6">Komfortní Pokoj</h3>
+                <!-- Box s textem přesahující přes fotku -->
+                <div class="w-full md:w-6/12 relative card-overlap bg-white p-10 md:p-14 shadow-2xl border-t-4 border-brand-accent">
+                    <p class="text-brand-accent text-sm uppercase tracking-widest mb-3 font-semibold">4x K dispozici</p>
+                    <h3 class="font-display text-4xl mb-6 text-brand-dark">Komfortní Pokoj</h3>
                     <p class="text-gray-600 font-light leading-relaxed mb-8 text-lg">
                         Prosvětlený, do detailu promyšlený prostor ideální pro páry i jednotlivce. Ať už Náměšť nad Oslavou navštívíte pracovně nebo za odpočinkem, náš penzion vám poskytne klidné a vysoce komfortní zázemí, které dalece převyšuje standardy běžné ubytovny.
                     </p>
-                    <ul class="space-y-4 text-gray-800 font-light">
+                    <ul class="space-y-4 text-gray-800 font-light border-t border-gray-100 pt-6">
                         <li class="flex items-center"><i class="fa-solid fa-shower text-brand-accent w-6"></i> Vlastní koupelna se sprchovým koutem</li>
                         <li class="flex items-center"><i class="fa-solid fa-snowflake text-brand-accent w-6"></i> Osobní lednice na pokoji</li>
                         <li class="flex items-center"><i class="fa-solid fa-utensils text-brand-accent w-6"></i> Přístup do plně vybavené sdílené kuchyně</li>
@@ -257,26 +295,26 @@
             </div>
 
             <!-- Apartmán -->
-            <div class="flex flex-col md:flex-row-reverse items-center gap-16 reveal">
-                <div class="w-full md:w-1/2">
-                    <div class="aspect-[4/3] bg-gray-200 overflow-hidden relative">
-                        <img src="img/apartman-ubytovani-namest-nad-oslavou.jpg" alt="Apartmán ubytování Náměšť nad Oslavou" class="absolute inset-0 w-full h-full object-cover">
+            <div class="flex flex-col md:flex-row-reverse items-center reveal">
+                <div class="w-full md:w-7/12 relative">
+                    <div class="aspect-[4/3] bg-gray-200 overflow-hidden shadow-xl">
+                        <img src="img/apartman-ubytovani-namest-nad-oslavou.jpg" alt="Apartmán ubytování Náměšť nad Oslavou" class="w-full h-full object-cover">
                     </div>
                 </div>
-                <div class="w-full md:w-1/2">
-                    <p class="text-brand-accent text-sm uppercase tracking-widest mb-4">4x K dispozici</p>
-                    <h3 class="font-display text-4xl mb-6">Prostorný Apartmán</h3>
+                <!-- Box s textem přesahující přes fotku z druhé strany -->
+                <div class="w-full md:w-6/12 relative card-overlap-reverse bg-white p-10 md:p-14 shadow-2xl border-t-4 border-[#8CB4D6]">
+                    <p class="text-[#8CB4D6] text-sm uppercase tracking-widest mb-3 font-semibold">4x K dispozici</p>
+                    <h3 class="font-display text-4xl mb-6 text-brand-dark">Prostorný Apartmán</h3>
                     <p class="text-gray-600 font-light leading-relaxed mb-8 text-lg">
                         Hledáte prostorné ubytování v Náměšti nad Oslavou s naprostým soukromím? Naše apartmány představují ideální volbu pro rodiny i delší pobyty. Nabízí štědrý prostor kombinující stylový obývací pokoj s plnohodnotným vlastním zázemím.
                     </p>
-                    <ul class="space-y-4 text-gray-800 font-light">
-                        <li class="flex items-center"><i class="fa-solid fa-bath text-brand-accent w-6"></i> Prostorná soukromá koupelna</li>
-                        <li class="flex items-center"><i class="fa-solid fa-kitchen-set text-brand-accent w-6"></i> Vlastní vybavená kuchyňka</li>
-                        <li class="flex items-center"><i class="fa-solid fa-bed text-brand-accent w-6"></i> Ideální pro dlouhodobé pobyty a rodiny</li>
+                    <ul class="space-y-4 text-gray-800 font-light border-t border-gray-100 pt-6">
+                        <li class="flex items-center"><i class="fa-solid fa-bath text-[#8CB4D6] w-6"></i> Prostorná soukromá koupelna</li>
+                        <li class="flex items-center"><i class="fa-solid fa-kitchen-set text-[#8CB4D6] w-6"></i> Vlastní vybavená kuchyňka</li>
+                        <li class="flex items-center"><i class="fa-solid fa-bed text-[#8CB4D6] w-6"></i> Ideální pro dlouhodobé pobyty a rodiny</li>
                     </ul>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -307,6 +345,7 @@
         </div>
     </section>
 
+    <!-- Zbytek webu zůstává stejný ... -->
     <section id="okoli" class="py-32 px-6 bg-white">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-20 reveal">
@@ -317,24 +356,22 @@
             <div class="grid md:grid-cols-2 gap-16">
                 <!-- Akce 1 -->
                 <div class="group reveal">
-                    <!-- Použit aspect-square a <img> tagy pro perfektní SEO i rozměry 600x600 -->
                     <div class="aspect-square overflow-hidden mb-8 bg-gray-100 relative">
                         <img src="img/folkove-prazdniny-ubytovani-namest-nad-oslavou.png" alt="Folkové prázdniny - penzion Náměšť" class="absolute inset-0 w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105">
                     </div>
                     <p class="text-brand-accent text-xs uppercase tracking-widest mb-3">Kulturní událost roku</p>
                     <h3 class="font-display text-3xl mb-4">Folkové prázdniny</h3>
-                    <p class="text-gray-600 font-light leading-relaxed">Osmi denní hudební festival plný koncertů, divadel a workshopů oživí celé město. Náš penzion nabízí během této výjimečné události tiché a klidné zázemí. Vzhledem k obrovskému zájmu doporučujeme řešit rezervaci ubytování v Náměšti s dostatečným předstihem.</p>
+                    <p class="text-gray-600 font-light leading-relaxed">Osmi denní hudební festival plný koncertů, divadel a workshopů oživí celé město. Náš penzion poskytne během této výjimečné události tiché a klidné zázemí. Vzhledem k obrovskému zájmu doporučujeme řešit ubytování v Náměšti s dostatečným předstihem.</p>
                 </div>
 
                 <!-- Akce 2 -->
                 <div class="group reveal" style="transition-delay: 200ms;">
-                    <!-- Použit aspect-square a <img> tag pro perfektní SEO -->
                     <div class="aspect-square overflow-hidden mb-8 bg-gray-100 relative">
                         <img src="img/den-otevrenych-dveri-namest-ubytovani.png" alt="Den otevřených dveří letiště - ubytování Náměšť nad Oslavou" class="absolute inset-0 w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105">
                     </div>
                     <p class="text-brand-accent text-xs uppercase tracking-widest mb-3">Armádní akce</p>
                     <h3 class="font-display text-3xl mb-4">Den otevřených dveří letiště</h3>
-                    <p class="text-gray-600 font-light leading-relaxed">Fascinují vás vrtulníky a letadla? Vojenská základna pravidelně otevírá své brány veřejnosti s úžasnými ukázkami. Pokud plánujete návštěvu, poskytneme vám velmi pohodlné ubytování, odkud to máte na celou událost opravdu kousek.</p>
+                    <p class="text-gray-600 font-light leading-relaxed">Fascinují vás vrtulníky a letadla? Vojenská základna pravidelně otevírá své brány veřejnosti s úžasnými ukázkami. Pokud plánujete návštěvu, nabídneme vám velmi pohodlné pokoje a apartmány, odkud to máte na celou událost opravdu kousek.</p>
                 </div>
             </div>
         </div>
