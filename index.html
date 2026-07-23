@@ -4,22 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- Špičkové SEO -->
     <title>Penzion Náměšť nad Oslavou | Ubytování Fontána</title>
     <meta name="description" content="Hledáte ubytování Náměšť nad Oslavou? Náš zrekonstruovaný penzion Náměšť (2025) nabízí komfortní pokoje a apartmány s kuchyňkou. Vaše ideální ubytování.">
     <meta name="keywords" content="ubytování Náměšť, ubytování Náměšť nad Oslavou, penzion Náměšť, penzion Náměšť nad Oslavou, apartmány Náměšť, ubytovna Náměšť">
     <meta name="author" content="Penzion Fontána">
     
-    <!-- Prémiové Fonty: Jost (moderní geometrický) pro nadpisy, Manrope (čistý) pro texty -->
+    <!-- Prémiové Fonty -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Manrope:wght@200;300;400;500&display=swap" rel="stylesheet">
     
-    <!-- Ikonky a Tailwind -->
+    <!-- FontAwesome a Tailwind -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Konfigurace Tailwindu a vlastní CSS -->
     <script>
         tailwind.config = {
             theme: {
@@ -30,10 +28,10 @@
                     },
                     colors: {
                         brand: {
-                            light: '#FAF9F6', // Lněná barva pozadí
-                            dark: '#1C1B1A',  // Velmi tmavá šedá (téměř černá)
-                            accent: '#B8905B', // Původní bronzová/zlatá pro detaily
-                            ice: '#8CB4D6',   // Elegantní ledově modrá pro vybrané nadpisy
+                            light: '#FAF9F6', 
+                            dark: '#1C1B1A',  
+                            accent: '#B8905B', 
+                            ice: '#8CB4D6',   
                         }
                     }
                 }
@@ -48,12 +46,10 @@
             overflow-x: hidden;
         }
 
-        /* Úprava scrollování pro lightbox */
         body.lightbox-open {
             overflow: hidden;
         }
 
-        /* Reveal animace při scrollování */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -64,7 +60,6 @@
             transform: translateY(0);
         }
 
-        /* Hero Carousel efekty */
         .carousel-slide {
             opacity: 0;
             transition: opacity 1.5s ease-in-out;
@@ -77,7 +72,6 @@
             z-index: 2;
         }
         
-        /* Indikátory slideru */
         .carousel-indicator {
             width: 40px;
             height: 3px;
@@ -89,7 +83,6 @@
             width: 60px;
         }
 
-        /* Subtilní linky pod odkazy v menu */
         .nav-link {
             position: relative;
         }
@@ -107,37 +100,12 @@
             width: 100%;
         }
 
-        /* Lightbox Z-index oprava */
         #lightbox {
             z-index: 9999;
         }
-        
-        /* Asymetrický překryv pro sekci ubytování */
-        .card-overlap {
-            margin-top: -80px;
-            margin-left: -40px;
-            z-index: 10;
-        }
-        @media (max-width: 768px) {
-            .card-overlap {
-                margin-top: -40px;
-                margin-left: 0;
-            }
-        }
-        .card-overlap-reverse {
-            margin-top: -80px;
-            margin-right: -40px;
-            z-index: 10;
-        }
-        @media (max-width: 768px) {
-            .card-overlap-reverse {
-                margin-top: -40px;
-                margin-right: 0;
-            }
-        }
     </style>
 
-    <!-- Schema.org pro fantastické lokální SEO -->
+    <!-- Schema.org -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -159,15 +127,12 @@
 </head>
 <body class="antialiased">
 
-    <!-- Navigace (Boutique styl) -->
     <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-6 text-white" style="background-color: transparent;">
         <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
-            <!-- Logo -->
             <a href="#home" class="font-display text-2xl font-medium tracking-wide z-20">
                 Fontána.
             </a>
 
-            <!-- Menu (Střed) -->
             <div class="hidden md:flex space-x-10 absolute left-1/2 transform -translate-x-1/2 font-light text-sm tracking-widest uppercase">
                 <a href="#ubytovani" class="nav-link">Pokoje</a>
                 <a href="#okoli" class="nav-link">Okolí</a>
@@ -175,20 +140,17 @@
                 <a href="#kontakt" class="nav-link">Kontakt</a>
             </div>
 
-            <!-- Telefon (Vpravo) -->
             <div class="hidden md:block z-20">
                 <a href="tel:+420123456789" class="font-light tracking-wider hover:opacity-70 transition-opacity">
                     +420 123 456 789
                 </a>
             </div>
 
-            <!-- Mobilní hamburger -->
             <button id="mobile-menu-btn" class="md:hidden z-20 text-2xl focus:outline-none">
                 <i class="fa-solid fa-bars"></i>
             </button>
         </div>
 
-        <!-- Mobilní menu plátno -->
         <div id="mobile-menu" class="fixed inset-0 bg-brand-dark/95 backdrop-blur-lg flex flex-col justify-center items-center space-y-8 text-white transition-opacity duration-300 opacity-0 pointer-events-none z-10">
             <a href="#ubytovani" class="mobile-link font-display text-3xl">Pokoje</a>
             <a href="#okoli" class="mobile-link font-display text-3xl">Okolí</a>
@@ -198,55 +160,42 @@
         </div>
     </nav>
 
-    <!-- Hero Sekce -->
     <header id="home" class="relative w-full h-screen min-h-[600px] flex items-center justify-center overflow-hidden bg-brand-dark">
-        <!-- Slider Kontejner -->
         <div class="absolute inset-0 z-0 w-full h-full">
-            <!-- Snímek 1 (Nový Hlavní) -->
             <div class="carousel-slide active">
-                <!-- Ztmavení fotky na 50% pro lepší čitelnost textu -->
                 <div class="absolute inset-0 bg-black/50 z-10"></div>
                 <img src="img/ubytovna-namest-nad-oslavou.jpg" alt="Ubytovna Náměšť nad Oslavou - Penzion Fontána" class="w-full h-full object-cover">
             </div>
-            <!-- Snímek 2 (Dříve hlavní) -->
             <div class="carousel-slide">
                 <div class="absolute inset-0 bg-black/50 z-10"></div>
                 <img src="img/penzion-fontana-ubytovani-namest-nad-oslavou.jpg" alt="Penzion Fontána exteriér" class="w-full h-full object-cover">
             </div>
-            <!-- Snímek 3 (Pokoj) -->
             <div class="carousel-slide">
                 <div class="absolute inset-0 bg-black/50 z-10"></div>
                 <img src="img/zrekonstruovany-pokoj-penzion-namest.jpg" alt="Moderní pokoj ubytování Náměšť" class="w-full h-full object-cover">
             </div>
-            <!-- Snímek 4 (Apartmán) -->
             <div class="carousel-slide">
                 <div class="absolute inset-0 bg-black/50 z-10"></div>
                 <img src="img/apartman-ubytovani-namest-nad-oslavou.jpg" alt="Apartmán s kuchyňkou" class="w-full h-full object-cover">
             </div>
         </div>
 
-        <!-- Čistý text uprostřed (bez boxu) -->
         <div class="relative z-10 w-full max-w-5xl mx-auto px-6 text-center mt-16 flex flex-col items-center">
-            <!-- Název Fontána (H2, decentnější stín) -->
-            <h2 class="font-display text-3xl md:text-4xl text-[#8CB4D6] mb-4 reveal font-semibold tracking-wide" style="text-shadow: 0 2px 4px rgba(0,0,0,0.8);">
+            <h2 class="font-display text-3xl md:text-4xl text-brand-ice mb-4 reveal font-semibold tracking-wide" style="text-shadow: 0 2px 4px rgba(0,0,0,0.8);">
                 Penzion Fontána
             </h2>
             
-            <!-- Hlavní nadpis H1 (Velký, dominantní, pro dokonalé SEO) -->
-            <h1 class="font-display text-5xl md:text-7xl font-medium leading-tight mb-8 text-white reveal" style="transition-delay: 100ms; text-shadow: 0 4px 12px rgba(0,0,0,0.6);">
+            <h1 class="font-display text-5xl md:text-7xl font-medium leading-tight mb-8 text-white reveal" style="transition-delay: 100ms; text-shadow: 0 4px 12px rgba(0,0,0,0.8);">
                 Ubytování<br>
                 <span class="font-light text-gray-200">Náměšť nad Oslavou</span>
             </h1>
             
-            <!-- Text pod nadpisem -->
             <p class="text-lg text-gray-200 max-w-2xl mx-auto font-light reveal" style="transition-delay: 200ms; text-shadow: 0 2px 6px rgba(0,0,0,0.8);">
                 Nově zrekonstruované pokoje a apartmány (2025). Poskytujeme moderní zázemí a naprostý klid pro váš odpočinek.
             </p>
         </div>
 
-        <!-- Ovládání Slideru (Dole) -->
         <div class="absolute bottom-10 left-0 w-full z-20 flex flex-col items-center gap-6 px-6">
-            <!-- Indikátory (Proužky) -->
             <div class="flex space-x-3">
                 <button class="carousel-indicator active cursor-pointer" onclick="goToSlide(0)" aria-label="Snímek 1"></button>
                 <button class="carousel-indicator cursor-pointer" onclick="goToSlide(1)" aria-label="Snímek 2"></button>
@@ -254,13 +203,11 @@
                 <button class="carousel-indicator cursor-pointer" onclick="goToSlide(3)" aria-label="Snímek 4"></button>
             </div>
             
-            <!-- Posuv na další sekci -->
-            <a href="#ubytovani" class="text-white opacity-70 hover:opacity-100 transition-opacity animate-bounce mt-4">
+            <a href="#benefity" class="text-white opacity-70 hover:opacity-100 transition-opacity animate-bounce mt-4">
                 <i class="fa-solid fa-chevron-down text-2xl"></i>
             </a>
         </div>
 
-        <!-- Manuální Šipky (Strany) -->
         <button id="prevSlide" class="absolute left-4 md:left-10 top-1/2 transform -translate-y-1/2 z-20 text-white w-12 h-12 rounded-full flex items-center justify-center bg-black/20 backdrop-blur hover:bg-black/40 transition-colors border border-white/10">
             <i class="fa-solid fa-chevron-left text-xl"></i>
         </button>
@@ -269,39 +216,33 @@
         </button>
     </header>
     
-    <!-- Benefity a Pravidla (Info pruh) -->
-    <section class="py-16 bg-white border-b border-gray-100 z-10 relative">
+    <section id="benefity" class="py-16 bg-white border-b border-gray-100 z-10 relative">
         <div class="max-w-6xl mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-center reveal">
-                <!-- Parkování -->
                 <div class="group">
                     <i class="fa-solid fa-square-parking text-3xl text-brand-accent mb-5 transform transition duration-500 group-hover:-translate-y-1"></i>
                     <h4 class="font-display text-xl mb-2 text-brand-dark">Parkování zdarma</h4>
                     <p class="text-gray-500 font-light text-sm">Pohodlné a bezpečné parkování je pro vás připraveno přímo před objektem.</p>
                 </div>
-                <!-- EV Nabíjení -->
                 <div class="group">
                     <i class="fa-solid fa-charging-station text-3xl text-brand-accent mb-5 transform transition duration-500 group-hover:-translate-y-1"></i>
                     <h4 class="font-display text-xl mb-2 text-brand-dark">Nabíjení elektroaut</h4>
                     <p class="text-gray-500 font-light text-sm">K dispozici je moderní wallbox. Nabijte si svůj elektromobil pohodlně přes noc.</p>
                 </div>
-                <!-- Nekuřácké -->
                 <div class="group">
                     <i class="fa-solid fa-ban-smoking text-3xl text-brand-accent mb-5 transform transition duration-500 group-hover:-translate-y-1"></i>
                     <h4 class="font-display text-xl mb-2 text-brand-dark">Nekuřácké pokoje</h4>
-                    <p class="text-gray-500 font-light text-sm">Veškeré vnitřní prostory jsou nekuřácké. Pro kuřáky je vyhrazen prostor venku.</p>
+                    <p class="text-gray-500 font-light text-sm">Všechny vnitřní prostory jsou nekuřácké. Pro kuřáky je vyhrazen prostor venku.</p>
                 </div>
-                <!-- Bez zvířat -->
                 <div class="group">
                     <i class="fa-solid fa-paw text-3xl text-brand-accent mb-5 transform transition duration-500 group-hover:-translate-y-1"></i>
                     <h4 class="font-display text-xl mb-2 text-brand-dark">Bez domácích zvířat</h4>
-                    <p class="text-gray-500 font-light text-sm">Pro garanci maximální čistoty a s ohledem na alergiky zvířata neubytováváme.</p>
+                    <p class="text-gray-500 font-light text-sm">Pro garanci maximální čistoty a ohleduplnost k alergikům zvířata neubytováváme.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Ubytování (Pokoje a Apartmány) -->
     <section id="ubytovani" class="py-32 px-6 bg-[#FAF9F6]">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-24 reveal">
@@ -310,27 +251,37 @@
                 <p class="mt-6 text-gray-500 font-light max-w-2xl mx-auto">Vyberte si z našich komfortních pokojů nebo plně vybavených apartmánů. Vše voní novotou po kompletní rekonstrukci (2025). Každá jednotka disponuje vlastní koupelnou.</p>
             </div>
 
-            <!-- 1. Sekce: Pokoje (Sdílená kuchyň) -->
-            <div class="mb-20">
-                <div class="flex items-center mb-8 reveal">
+            <!-- Pokoje -->
+            <div class="mb-24">
+                <div class="flex items-center mb-10 reveal">
                     <h3 class="font-display text-3xl text-brand-dark">Pokoje</h3>
                     <span class="ml-4 px-3 py-1 bg-gray-200 text-gray-600 text-xs uppercase tracking-widest font-semibold rounded-sm">Sdílená kuchyňka</span>
                 </div>
                 
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 reveal">
                     
                     <!-- Pokoj 1 -->
-                    <div class="bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 group">
+                    <div class="bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 group rounded-md overflow-hidden">
                         <div class="aspect-[4/3] overflow-hidden bg-gray-100 relative lightbox-trigger group cursor-pointer" data-image="img/1/foto1.jpg" data-group="pokoj1">
                             <img src="img/1/foto1.jpg" alt="Pokoj 1 - Ubytování Náměšť" class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-105">
-                            <div class="absolute top-4 right-4 bg-white/95 backdrop-blur px-3 py-1 text-sm font-display tracking-widest uppercase text-brand-dark shadow-sm">Pokoj 1</div>
-                            <!-- Hover efekt s lupou -->
+                            <div class="absolute top-4 right-4 bg-white/95 backdrop-blur px-3 py-1 text-sm font-display tracking-widest uppercase text-brand-dark shadow-sm rounded-sm">Pokoj 1</div>
                             <div class="absolute inset-0 bg-brand-dark/0 group-hover:bg-brand-dark/20 transition-colors duration-500 flex items-center justify-center opacity-0 group-hover:opacity-100">
                                 <i class="fa-solid fa-magnifying-glass text-white text-3xl drop-shadow-md"></i>
                             </div>
                         </div>
+                        <!-- Skryté obrázky pro lightbox Pokoje 1 -->
+                        <div class="hidden lightbox-trigger" data-image="img/1/foto2.jpg" data-group="pokoj1"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/1/foto3.jpg" data-group="pokoj1"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/1/foto4.jpg" data-group="pokoj1"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/1/foto5.jpg" data-group="pokoj1"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/1/foto6.jpg" data-group="pokoj1"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/1/foto7.jpg" data-group="pokoj1"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/1/foto8.jpg" data-group="pokoj1"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/1/foto9.jpg" data-group="pokoj1"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/1/foto10.jpg" data-group="pokoj1"></div>
+
                         <div class="p-6">
-                            <div class="flex items-center justify-between mb-4 pb-4 border-b border-gray-100">
+                            <div class="flex items-center justify-between mb-5 pb-5 border-b border-gray-100">
                                 <span class="text-gray-400 font-light text-xs uppercase tracking-wider">Kapacita</span>
                                 <div class="flex items-center text-brand-accent">
                                     <span class="font-medium text-lg tracking-wide">3 osoby</span>
@@ -340,23 +291,32 @@
                             <ul class="space-y-3 text-sm font-light text-gray-600">
                                 <li class="flex items-start"><i class="fa-solid fa-shower mt-1 mr-3 text-gray-300 w-4 text-center"></i> Vlastní koupelna</li>
                                 <li class="flex items-start"><i class="fa-solid fa-kitchen-set mt-1 mr-3 text-gray-300 w-4 text-center"></i> Sdílená kuchyňka</li>
-                                <li class="flex items-start"><i class="fa-solid fa-snowflake mt-1 mr-3 text-gray-300 w-4 text-center"></i> Lednice na pokoji</li>
                             </ul>
                         </div>
                     </div>
 
                     <!-- Pokoj 2 -->
-                    <div class="bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 group">
+                    <div class="bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 group rounded-md overflow-hidden">
                         <div class="aspect-[4/3] overflow-hidden bg-gray-100 relative lightbox-trigger group cursor-pointer" data-image="img/2/foto1.jpg" data-group="pokoj2">
                             <img src="img/2/foto1.jpg" alt="Pokoj 2 - Ubytování Náměšť" class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-105">
-                            <div class="absolute top-4 right-4 bg-white/95 backdrop-blur px-3 py-1 text-sm font-display tracking-widest uppercase text-brand-dark shadow-sm">Pokoj 2</div>
-                            <!-- Hover efekt s lupou -->
+                            <div class="absolute top-4 right-4 bg-white/95 backdrop-blur px-3 py-1 text-sm font-display tracking-widest uppercase text-brand-dark shadow-sm rounded-sm">Pokoj 2</div>
                             <div class="absolute inset-0 bg-brand-dark/0 group-hover:bg-brand-dark/20 transition-colors duration-500 flex items-center justify-center opacity-0 group-hover:opacity-100">
                                 <i class="fa-solid fa-magnifying-glass text-white text-3xl drop-shadow-md"></i>
                             </div>
                         </div>
+                        <!-- Skryté obrázky -->
+                        <div class="hidden lightbox-trigger" data-image="img/2/foto2.jpg" data-group="pokoj2"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/2/foto3.jpg" data-group="pokoj2"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/2/foto4.jpg" data-group="pokoj2"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/2/foto5.jpg" data-group="pokoj2"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/2/foto6.jpg" data-group="pokoj2"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/2/foto7.jpg" data-group="pokoj2"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/2/foto8.jpg" data-group="pokoj2"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/2/foto9.jpg" data-group="pokoj2"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/2/foto10.jpg" data-group="pokoj2"></div>
+
                         <div class="p-6">
-                            <div class="flex items-center justify-between mb-4 pb-4 border-b border-gray-100">
+                            <div class="flex items-center justify-between mb-5 pb-5 border-b border-gray-100">
                                 <span class="text-gray-400 font-light text-xs uppercase tracking-wider">Kapacita</span>
                                 <div class="flex items-center text-brand-accent">
                                     <span class="font-medium text-lg tracking-wide">3 osoby</span>
@@ -366,23 +326,32 @@
                             <ul class="space-y-3 text-sm font-light text-gray-600">
                                 <li class="flex items-start"><i class="fa-solid fa-shower mt-1 mr-3 text-gray-300 w-4 text-center"></i> Vlastní koupelna</li>
                                 <li class="flex items-start"><i class="fa-solid fa-kitchen-set mt-1 mr-3 text-gray-300 w-4 text-center"></i> Sdílená kuchyňka</li>
-                                <li class="flex items-start"><i class="fa-solid fa-snowflake mt-1 mr-3 text-gray-300 w-4 text-center"></i> Lednice na pokoji</li>
                             </ul>
                         </div>
                     </div>
 
                     <!-- Pokoj 3 -->
-                    <div class="bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 group">
+                    <div class="bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 group rounded-md overflow-hidden">
                         <div class="aspect-[4/3] overflow-hidden bg-gray-100 relative lightbox-trigger group cursor-pointer" data-image="img/3/foto1.jpg" data-group="pokoj3">
                             <img src="img/3/foto1.jpg" alt="Pokoj 3 - Ubytování Náměšť" class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-105">
-                            <div class="absolute top-4 right-4 bg-white/95 backdrop-blur px-3 py-1 text-sm font-display tracking-widest uppercase text-brand-dark shadow-sm">Pokoj 3</div>
-                            <!-- Hover efekt s lupou -->
+                            <div class="absolute top-4 right-4 bg-white/95 backdrop-blur px-3 py-1 text-sm font-display tracking-widest uppercase text-brand-dark shadow-sm rounded-sm">Pokoj 3</div>
                             <div class="absolute inset-0 bg-brand-dark/0 group-hover:bg-brand-dark/20 transition-colors duration-500 flex items-center justify-center opacity-0 group-hover:opacity-100">
                                 <i class="fa-solid fa-magnifying-glass text-white text-3xl drop-shadow-md"></i>
                             </div>
                         </div>
+                        <!-- Skryté obrázky -->
+                        <div class="hidden lightbox-trigger" data-image="img/3/foto2.jpg" data-group="pokoj3"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/3/foto3.jpg" data-group="pokoj3"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/3/foto4.jpg" data-group="pokoj3"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/3/foto5.jpg" data-group="pokoj3"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/3/foto6.jpg" data-group="pokoj3"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/3/foto7.jpg" data-group="pokoj3"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/3/foto8.jpg" data-group="pokoj3"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/3/foto9.jpg" data-group="pokoj3"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/3/foto10.jpg" data-group="pokoj3"></div>
+
                         <div class="p-6">
-                            <div class="flex items-center justify-between mb-4 pb-4 border-b border-gray-100">
+                            <div class="flex items-center justify-between mb-5 pb-5 border-b border-gray-100">
                                 <span class="text-gray-400 font-light text-xs uppercase tracking-wider">Kapacita</span>
                                 <div class="flex items-center text-brand-accent">
                                     <span class="font-medium text-lg tracking-wide">2 osoby</span>
@@ -392,23 +361,32 @@
                             <ul class="space-y-3 text-sm font-light text-gray-600">
                                 <li class="flex items-start"><i class="fa-solid fa-shower mt-1 mr-3 text-gray-300 w-4 text-center"></i> Vlastní koupelna</li>
                                 <li class="flex items-start"><i class="fa-solid fa-kitchen-set mt-1 mr-3 text-gray-300 w-4 text-center"></i> Sdílená kuchyňka</li>
-                                <li class="flex items-start"><i class="fa-solid fa-snowflake mt-1 mr-3 text-gray-300 w-4 text-center"></i> Lednice na pokoji</li>
                             </ul>
                         </div>
                     </div>
 
                     <!-- Pokoj 4 -->
-                    <div class="bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 group">
+                    <div class="bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 group rounded-md overflow-hidden">
                         <div class="aspect-[4/3] overflow-hidden bg-gray-100 relative lightbox-trigger group cursor-pointer" data-image="img/4/foto1.jpg" data-group="pokoj4">
                             <img src="img/4/foto1.jpg" alt="Pokoj 4 - Ubytování Náměšť" class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-105">
-                            <div class="absolute top-4 right-4 bg-white/95 backdrop-blur px-3 py-1 text-sm font-display tracking-widest uppercase text-brand-dark shadow-sm">Pokoj 4</div>
-                            <!-- Hover efekt s lupou -->
+                            <div class="absolute top-4 right-4 bg-white/95 backdrop-blur px-3 py-1 text-sm font-display tracking-widest uppercase text-brand-dark shadow-sm rounded-sm">Pokoj 4</div>
                             <div class="absolute inset-0 bg-brand-dark/0 group-hover:bg-brand-dark/20 transition-colors duration-500 flex items-center justify-center opacity-0 group-hover:opacity-100">
                                 <i class="fa-solid fa-magnifying-glass text-white text-3xl drop-shadow-md"></i>
                             </div>
                         </div>
+                        <!-- Skryté obrázky -->
+                        <div class="hidden lightbox-trigger" data-image="img/4/foto2.jpg" data-group="pokoj4"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/4/foto3.jpg" data-group="pokoj4"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/4/foto4.jpg" data-group="pokoj4"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/4/foto5.jpg" data-group="pokoj4"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/4/foto6.jpg" data-group="pokoj4"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/4/foto7.jpg" data-group="pokoj4"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/4/foto8.jpg" data-group="pokoj4"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/4/foto9.jpg" data-group="pokoj4"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/4/foto10.jpg" data-group="pokoj4"></div>
+
                         <div class="p-6">
-                            <div class="flex items-center justify-between mb-4 pb-4 border-b border-gray-100">
+                            <div class="flex items-center justify-between mb-5 pb-5 border-b border-gray-100">
                                 <span class="text-gray-400 font-light text-xs uppercase tracking-wider">Kapacita</span>
                                 <div class="flex items-center text-brand-accent">
                                     <span class="font-medium text-lg tracking-wide">3 osoby</span>
@@ -418,7 +396,6 @@
                             <ul class="space-y-3 text-sm font-light text-gray-600">
                                 <li class="flex items-start"><i class="fa-solid fa-shower mt-1 mr-3 text-gray-300 w-4 text-center"></i> Vlastní koupelna</li>
                                 <li class="flex items-start"><i class="fa-solid fa-kitchen-set mt-1 mr-3 text-gray-300 w-4 text-center"></i> Sdílená kuchyňka</li>
-                                <li class="flex items-start"><i class="fa-solid fa-snowflake mt-1 mr-3 text-gray-300 w-4 text-center"></i> Lednice na pokoji</li>
                             </ul>
                         </div>
                     </div>
@@ -426,27 +403,36 @@
                 </div>
             </div>
 
-            <!-- 2. Sekce: Apartmány (Vlastní kuchyň) -->
             <div>
-                <div class="flex items-center mb-8 reveal" style="transition-delay: 100ms;">
+                <div class="flex items-center mb-10 reveal" style="transition-delay: 100ms;">
                     <h3 class="font-display text-3xl text-brand-dark">Apartmány</h3>
                     <span class="ml-4 px-3 py-1 bg-brand-accent/10 text-brand-accent text-xs uppercase tracking-widest font-semibold rounded-sm">Vlastní kuchyňka</span>
                 </div>
                 
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal" style="transition-delay: 200ms;">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 reveal" style="transition-delay: 200ms;">
                     
                     <!-- Apartmán 5 -->
-                    <div class="bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 group">
+                    <div class="bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 group rounded-md overflow-hidden">
                         <div class="aspect-[4/3] overflow-hidden bg-gray-100 relative lightbox-trigger group cursor-pointer" data-image="img/5/foto1.jpg" data-group="apartman5">
                             <img src="img/5/foto1.jpg" alt="Apartmán 5 - Ubytování Náměšť" class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-105">
-                            <div class="absolute top-4 right-4 bg-white/95 backdrop-blur px-3 py-1 text-sm font-display tracking-widest uppercase text-brand-dark shadow-sm">Apt 5</div>
-                            <!-- Hover efekt s lupou -->
+                            <div class="absolute top-4 right-4 bg-white/95 backdrop-blur px-3 py-1 text-sm font-display tracking-widest uppercase text-brand-dark shadow-sm rounded-sm">Apt 5</div>
                             <div class="absolute inset-0 bg-brand-dark/0 group-hover:bg-brand-dark/20 transition-colors duration-500 flex items-center justify-center opacity-0 group-hover:opacity-100">
                                 <i class="fa-solid fa-magnifying-glass text-white text-3xl drop-shadow-md"></i>
                             </div>
                         </div>
+                        <!-- Skryté obrázky -->
+                        <div class="hidden lightbox-trigger" data-image="img/5/foto2.jpg" data-group="apartman5"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/5/foto3.jpg" data-group="apartman5"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/5/foto4.jpg" data-group="apartman5"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/5/foto5.jpg" data-group="apartman5"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/5/foto6.jpg" data-group="apartman5"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/5/foto7.jpg" data-group="apartman5"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/5/foto8.jpg" data-group="apartman5"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/5/foto9.jpg" data-group="apartman5"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/5/foto10.jpg" data-group="apartman5"></div>
+
                         <div class="p-6">
-                            <div class="flex items-center justify-between mb-4 pb-4 border-b border-gray-100">
+                            <div class="flex items-center justify-between mb-5 pb-5 border-b border-gray-100">
                                 <span class="text-gray-400 font-light text-xs uppercase tracking-wider">Kapacita</span>
                                 <div class="flex items-center text-brand-accent">
                                     <span class="font-medium text-lg tracking-wide">5 osob</span>
@@ -461,17 +447,27 @@
                     </div>
 
                     <!-- Apartmán 6 -->
-                    <div class="bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 group">
+                    <div class="bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 group rounded-md overflow-hidden">
                         <div class="aspect-[4/3] overflow-hidden bg-gray-100 relative lightbox-trigger group cursor-pointer" data-image="img/6/foto1.jpg" data-group="apartman6">
                             <img src="img/6/foto1.jpg" alt="Apartmán 6 - Ubytování Náměšť" class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-105">
-                            <div class="absolute top-4 right-4 bg-white/95 backdrop-blur px-3 py-1 text-sm font-display tracking-widest uppercase text-brand-dark shadow-sm">Apt 6</div>
-                            <!-- Hover efekt s lupou -->
+                            <div class="absolute top-4 right-4 bg-white/95 backdrop-blur px-3 py-1 text-sm font-display tracking-widest uppercase text-brand-dark shadow-sm rounded-sm">Apt 6</div>
                             <div class="absolute inset-0 bg-brand-dark/0 group-hover:bg-brand-dark/20 transition-colors duration-500 flex items-center justify-center opacity-0 group-hover:opacity-100">
                                 <i class="fa-solid fa-magnifying-glass text-white text-3xl drop-shadow-md"></i>
                             </div>
                         </div>
+                        <!-- Skryté obrázky -->
+                        <div class="hidden lightbox-trigger" data-image="img/6/foto2.jpg" data-group="apartman6"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/6/foto3.jpg" data-group="apartman6"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/6/foto4.jpg" data-group="apartman6"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/6/foto5.jpg" data-group="apartman6"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/6/foto6.jpg" data-group="apartman6"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/6/foto7.jpg" data-group="apartman6"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/6/foto8.jpg" data-group="apartman6"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/6/foto9.jpg" data-group="apartman6"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/6/foto10.jpg" data-group="apartman6"></div>
+
                         <div class="p-6">
-                            <div class="flex items-center justify-between mb-4 pb-4 border-b border-gray-100">
+                            <div class="flex items-center justify-between mb-5 pb-5 border-b border-gray-100">
                                 <span class="text-gray-400 font-light text-xs uppercase tracking-wider">Kapacita</span>
                                 <div class="flex items-center text-brand-accent">
                                     <span class="font-medium text-lg tracking-wide">2 osoby</span>
@@ -486,17 +482,27 @@
                     </div>
 
                     <!-- Apartmán 7 -->
-                    <div class="bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 group">
+                    <div class="bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 group rounded-md overflow-hidden">
                         <div class="aspect-[4/3] overflow-hidden bg-gray-100 relative lightbox-trigger group cursor-pointer" data-image="img/7/foto1.jpg" data-group="apartman7">
                             <img src="img/7/foto1.jpg" alt="Apartmán 7 - Ubytování Náměšť" class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-105">
-                            <div class="absolute top-4 right-4 bg-white/95 backdrop-blur px-3 py-1 text-sm font-display tracking-widest uppercase text-brand-dark shadow-sm">Apt 7</div>
-                            <!-- Hover efekt s lupou -->
+                            <div class="absolute top-4 right-4 bg-white/95 backdrop-blur px-3 py-1 text-sm font-display tracking-widest uppercase text-brand-dark shadow-sm rounded-sm">Apt 7</div>
                             <div class="absolute inset-0 bg-brand-dark/0 group-hover:bg-brand-dark/20 transition-colors duration-500 flex items-center justify-center opacity-0 group-hover:opacity-100">
                                 <i class="fa-solid fa-magnifying-glass text-white text-3xl drop-shadow-md"></i>
                             </div>
                         </div>
+                        <!-- Skryté obrázky -->
+                        <div class="hidden lightbox-trigger" data-image="img/7/foto2.jpg" data-group="apartman7"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/7/foto3.jpg" data-group="apartman7"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/7/foto4.jpg" data-group="apartman7"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/7/foto5.jpg" data-group="apartman7"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/7/foto6.jpg" data-group="apartman7"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/7/foto7.jpg" data-group="apartman7"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/7/foto8.jpg" data-group="apartman7"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/7/foto9.jpg" data-group="apartman7"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/7/foto10.jpg" data-group="apartman7"></div>
+
                         <div class="p-6">
-                            <div class="flex items-center justify-between mb-4 pb-4 border-b border-gray-100">
+                            <div class="flex items-center justify-between mb-5 pb-5 border-b border-gray-100">
                                 <span class="text-gray-400 font-light text-xs uppercase tracking-wider">Kapacita</span>
                                 <div class="flex items-center text-brand-accent">
                                     <span class="font-medium text-lg tracking-wide">3 osoby</span>
@@ -511,17 +517,27 @@
                     </div>
 
                     <!-- Apartmán 8 (Velký) -->
-                    <div class="bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 group">
+                    <div class="bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 group rounded-md overflow-hidden">
                         <div class="aspect-[4/3] overflow-hidden bg-gray-100 relative lightbox-trigger group cursor-pointer" data-image="img/8/foto1.jpg" data-group="apartman8">
                             <img src="img/8/foto1.jpg" alt="Apartmán 8 - Ubytování Náměšť" class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-105">
-                            <div class="absolute top-4 right-4 bg-white/95 backdrop-blur px-3 py-1 text-sm font-display tracking-widest uppercase text-brand-dark shadow-sm">Apt 8</div>
-                            <!-- Hover efekt s lupou -->
+                            <div class="absolute top-4 right-4 bg-white/95 backdrop-blur px-3 py-1 text-sm font-display tracking-widest uppercase text-brand-dark shadow-sm rounded-sm">Apt 8</div>
                             <div class="absolute inset-0 bg-brand-dark/0 group-hover:bg-brand-dark/20 transition-colors duration-500 flex items-center justify-center opacity-0 group-hover:opacity-100">
                                 <i class="fa-solid fa-magnifying-glass text-white text-3xl drop-shadow-md"></i>
                             </div>
                         </div>
+                        <!-- Skryté obrázky -->
+                        <div class="hidden lightbox-trigger" data-image="img/8/foto2.jpg" data-group="apartman8"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/8/foto3.jpg" data-group="apartman8"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/8/foto4.jpg" data-group="apartman8"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/8/foto5.jpg" data-group="apartman8"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/8/foto6.jpg" data-group="apartman8"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/8/foto7.jpg" data-group="apartman8"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/8/foto8.jpg" data-group="apartman8"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/8/foto9.jpg" data-group="apartman8"></div>
+                        <div class="hidden lightbox-trigger" data-image="img/8/foto10.jpg" data-group="apartman8"></div>
+
                         <div class="p-6">
-                            <div class="flex items-center justify-between mb-4 pb-4 border-b border-gray-100">
+                            <div class="flex items-center justify-between mb-5 pb-5 border-b border-gray-100">
                                 <span class="text-gray-400 font-light text-xs uppercase tracking-wider">Kapacita</span>
                                 <div class="flex items-center text-brand-accent">
                                     <div class="text-right">
@@ -545,16 +561,14 @@
         </div>
     </section>
 
-    <!-- Přechodový video pás z dronu (Ponechána pouze jedna sekce, pročištěna pro lepší vzhled) -->
     <section class="relative w-full h-[400px] md:h-[550px] overflow-hidden reveal border-t border-b border-gray-100">
-        <!-- Video na pozadí -->
+        <!-- Zajištěno, že se jedná o JEDEN videopás s přesnou cestou -->
         <video autoplay loop muted playsinline class="w-full h-full object-cover">
-            <source src="penzion-namest.mp4" type="video/mp4">
+            <source src="img/penzion-namest.mp4" type="video/mp4">
             Váš prohlížeč nepodporuje přehrávání videa.
         </video>
     </section>
 
-    <!-- Info o lokaci -->
     <section class="py-20 border-t border-b border-gray-200">
         <div class="max-w-5xl mx-auto px-6">
             <h2 class="font-display text-center text-3xl mb-16">Všude kousek</h2>
@@ -581,7 +595,6 @@
         </div>
     </section>
 
-    <!-- Zbytek webu zůstává stejný ... -->
     <section id="okoli" class="py-32 px-6 bg-white">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-20 reveal">
@@ -592,17 +605,17 @@
             <div class="grid md:grid-cols-2 gap-16">
                 <!-- Akce 1 -->
                 <div class="group reveal">
-                    <div class="aspect-square overflow-hidden mb-8 bg-gray-100 relative">
+                    <div class="aspect-square overflow-hidden mb-8 bg-gray-100 relative rounded-md">
                         <img src="img/folkove-prazdniny-ubytovani-namest-nad-oslavou.png" alt="Folkové prázdniny - penzion Náměšť" class="absolute inset-0 w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105">
                     </div>
                     <p class="text-brand-accent text-xs uppercase tracking-widest mb-3">Kulturní událost roku</p>
                     <h3 class="font-display text-3xl mb-4">Folkové prázdniny</h3>
-                    <p class="text-gray-600 font-light leading-relaxed">Osmi denní hudební festival plný koncertů, divadel a workshopů oživí celé město. Náš penzion poskytne během této výjimečné události tiché a klidné zázemí. Vzhledem k obrovskému zájmu doporučujeme řešit ubytování v Náměšti s dostatečným předstihem.</p>
+                    <p class="text-gray-600 font-light leading-relaxed">Osmi denní hudební festival plný koncertů, divadel a workshopů oživí celé město. Během této výjimečné události vám náš penzion poskytne tiché a klidné zázemí k odpočinku. Vzhledem k obrovskému zájmu doporučujeme řešit ubytování v Náměšti nad Oslavou s dostatečným předstihem.</p>
                 </div>
 
                 <!-- Akce 2 -->
                 <div class="group reveal" style="transition-delay: 200ms;">
-                    <div class="aspect-square overflow-hidden mb-8 bg-gray-100 relative">
+                    <div class="aspect-square overflow-hidden mb-8 bg-gray-100 relative rounded-md">
                         <img src="img/den-otevrenych-dveri-namest-ubytovani.png" alt="Den otevřených dveří letiště - ubytování Náměšť nad Oslavou" class="absolute inset-0 w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105">
                     </div>
                     <p class="text-brand-accent text-xs uppercase tracking-widest mb-3">Armádní akce</p>
@@ -613,7 +626,6 @@
         </div>
     </section>
 
-    <!-- Galerie -->
     <section id="galerie" class="py-32 px-6">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16 reveal">
@@ -657,11 +669,10 @@
         </div>
     </section>
 
-    <!-- Kontakt a Mapa -->
     <section id="kontakt" class="bg-brand-dark text-white">
         
-        <!-- Full-width Google Mapa nad kontaktními údaji -->
-        <div class="w-full h-[400px] md:h-[450px] reveal">
+        <!-- Full-width Google Mapa HNED na začátku sekce -->
+        <div class="w-full h-[400px] md:h-[450px] reveal mb-16">
             <iframe 
                 class="w-full h-full"
                 src="https://maps.google.com/maps?hl=cs&amp;q=Penzion+Fontána+Náměšť&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" 
@@ -672,8 +683,7 @@
             </iframe>
         </div>
 
-        <!-- Kontaktní údaje -->
-        <div class="pt-24 pb-20 max-w-6xl mx-auto px-6 text-center reveal">
+        <div class="pb-24 max-w-6xl mx-auto px-6 text-center reveal">
             <p class="text-brand-accent text-sm uppercase tracking-widest mb-4">Rezervace a dotazy</p>
             <h2 class="font-display text-5xl md:text-6xl mb-12">Těšíme se na vás.</h2>
             
@@ -701,7 +711,6 @@
             </div>
         </div>
 
-        <!-- Patička -->
         <div class="bg-[#121110] px-6 py-8 border-t border-white/5">
             <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500 uppercase tracking-widest">
                 <p>&copy; 2026 Penzion Fontána - Ubytování Náměšť nad Oslavou.</p>
@@ -710,7 +719,6 @@
         </div>
     </section>
 
-    <!-- Lightbox (Vyskakovací okno pro fotky) -->
     <div id="lightbox" class="fixed inset-0 bg-brand-dark/95 backdrop-blur-sm hidden flex items-center justify-center opacity-0 transition-opacity duration-300">
         <button id="lightbox-close" class="absolute top-6 right-8 text-white text-4xl hover:text-brand-accent transition-colors z-50">&times;</button>
         <button id="lightbox-prev" class="absolute left-4 text-white text-4xl hover:text-brand-accent transition-colors z-50">
@@ -722,18 +730,15 @@
         <img id="lightbox-img" src="" alt="Zvětšená fotografie" class="max-w-[90vw] max-h-[90vh] object-contain shadow-2xl rounded-sm relative z-10">
     </div>
 
-    <!-- JavaScript Logika -->
     <script>
         // 1. Změna barvy navigace při scrollování s fixními HEX barvami
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
-                // Skrolováno: bílé pozadí, téměř černé písmo
                 navbar.style.backgroundColor = 'rgba(250, 249, 246, 0.98)';
                 navbar.style.color = '#1C1B1A'; 
                 navbar.classList.add('shadow-md');
             } else {
-                // Úplně nahoře: průhledné pozadí, bílé písmo
                 navbar.style.backgroundColor = 'transparent';
                 navbar.style.color = '#ffffff';
                 navbar.classList.remove('shadow-md');
@@ -750,7 +755,7 @@
             const isOpen = menu.classList.contains('opacity-0');
             if (isOpen) {
                 menu.classList.remove('opacity-0', 'pointer-events-none');
-                btn.innerHTML = '<i class="fa-solid fa-xmark text-white"></i>'; // Změna barvy křížku
+                btn.innerHTML = '<i class="fa-solid fa-xmark text-white"></i>';
                 body.style.overflow = 'hidden';
             } else {
                 menu.classList.add('opacity-0', 'pointer-events-none');
@@ -762,7 +767,7 @@
         btn.addEventListener('click', toggleMenu);
         links.forEach(link => link.addEventListener('click', toggleMenu));
 
-        // 3. Reveal Animace (Vyplouvání prvků)
+        // 3. Reveal Animace
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
             for (var i = 0; i < reveals.length; i++) {
@@ -775,9 +780,9 @@
             }
         }
         window.addEventListener("scroll", reveal);
-        reveal(); // Zavolání hned po načtení
+        reveal();
 
-        // 4. Hero Carousel (Slider na domovské obrazovce)
+        // 4. Hero Carousel 
         const slides = document.querySelectorAll('.carousel-slide');
         const indicators = document.querySelectorAll('.carousel-indicator');
         let currentSlide = 0;
@@ -812,7 +817,6 @@
             slideInterval = setInterval(nextSlide, 5000);
         }
 
-        // Tlačítka slideru
         document.getElementById('nextSlide').addEventListener('click', () => {
             nextSlide();
             resetInterval();
@@ -822,10 +826,9 @@
             resetInterval();
         });
 
-        // Start auto-play
         slideInterval = setInterval(nextSlide, 5000);
 
-        // 5. Lightbox Logika (Galerie a Pokoje)
+        // 5. Lightbox s podporou pro více neviditelných fotek v HTML
         const lightboxTriggers = document.querySelectorAll('.lightbox-trigger');
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
@@ -841,7 +844,7 @@
                 const groupName = this.getAttribute('data-group');
                 const imgSrc = this.getAttribute('data-image');
                 
-                // Najdeme všechny obrázky ve stejné skupině
+                // Tento selektor nabere úplně všechny fotky s danou kategorií, i ty skryté <div class="hidden">
                 currentImages = Array.from(document.querySelectorAll(`.lightbox-trigger[data-group="${groupName}"]`))
                     .map(el => el.getAttribute('data-image'));
                 
@@ -850,17 +853,15 @@
                 updateLightboxImage(currentImageIndex);
                 
                 lightbox.classList.remove('hidden');
-                // Malý timeout pro spuštění CSS fade-in animace
                 setTimeout(() => {
                     lightbox.classList.remove('opacity-0');
-                    document.body.classList.add('lightbox-open'); // zamezí scrollování pozadí
+                    document.body.classList.add('lightbox-open');
                 }, 10);
             });
         });
 
         function updateLightboxImage(index) {
             lightboxImg.src = currentImages[index];
-            // Skrytí šipek pokud je jen jeden obrázek ve skupině
             if (currentImages.length <= 1) {
                 lightboxNext.style.display = 'none';
                 lightboxPrev.style.display = 'none';
@@ -885,21 +886,19 @@
             setTimeout(() => {
                 lightbox.classList.add('hidden');
                 document.body.classList.remove('lightbox-open');
-            }, 300); // odpovídá duration-300 v Tailwindu
+            }, 300);
         }
 
         lightboxClose.addEventListener('click', closeLightbox);
         lightboxNext.addEventListener('click', nextLightboxImage);
         lightboxPrev.addEventListener('click', prevLightboxImage);
         
-        // Zavření po kliknutí mimo obrázek
         lightbox.addEventListener('click', function(e) {
             if (e.target === lightbox) {
                 closeLightbox();
             }
         });
         
-        // Klávesové zkratky
         document.addEventListener('keydown', function(e) {
             if (lightbox.classList.contains('hidden')) return;
 
