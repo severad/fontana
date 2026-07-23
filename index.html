@@ -202,18 +202,23 @@
     <header id="home" class="relative w-full h-screen min-h-[600px] flex items-center justify-center overflow-hidden bg-brand-dark">
         <!-- Slider Kontejner -->
         <div class="absolute inset-0 z-0 w-full h-full">
-            <!-- Snímek 1 (Hlavní) -->
+            <!-- Snímek 1 (Nový Hlavní) -->
             <div class="carousel-slide active">
-                <!-- Ztmavení fotky na 50% pro lepší čitelnost textu bez použití glassmorphism panelu -->
+                <!-- Ztmavení fotky na 50% pro lepší čitelnost textu -->
+                <div class="absolute inset-0 bg-black/50 z-10"></div>
+                <img src="img/ubytovani-namest-nad-oslavou.png" alt="Ubytovna Náměšť nad Oslavou - Penzion Fontána" class="w-full h-full object-cover">
+            </div>
+            <!-- Snímek 2 (Dříve hlavní) -->
+            <div class="carousel-slide">
                 <div class="absolute inset-0 bg-black/50 z-10"></div>
                 <img src="img/penzion-fontana-ubytovani-namest-nad-oslavou.jpg" alt="Penzion Fontána exteriér" class="w-full h-full object-cover">
             </div>
-            <!-- Snímek 2 (Pokoj) -->
+            <!-- Snímek 3 (Pokoj) -->
             <div class="carousel-slide">
                 <div class="absolute inset-0 bg-black/50 z-10"></div>
                 <img src="img/zrekonstruovany-pokoj-penzion-namest.jpg" alt="Moderní pokoj ubytování Náměšť" class="w-full h-full object-cover">
             </div>
-            <!-- Snímek 3 (Apartmán) -->
+            <!-- Snímek 4 (Apartmán) -->
             <div class="carousel-slide">
                 <div class="absolute inset-0 bg-black/50 z-10"></div>
                 <img src="img/apartman-ubytovani-namest-nad-oslavou.jpg" alt="Apartmán s kuchyňkou" class="w-full h-full object-cover">
@@ -246,6 +251,7 @@
                 <button class="carousel-indicator active cursor-pointer" onclick="goToSlide(0)" aria-label="Snímek 1"></button>
                 <button class="carousel-indicator cursor-pointer" onclick="goToSlide(1)" aria-label="Snímek 2"></button>
                 <button class="carousel-indicator cursor-pointer" onclick="goToSlide(2)" aria-label="Snímek 3"></button>
+                <button class="carousel-indicator cursor-pointer" onclick="goToSlide(3)" aria-label="Snímek 4"></button>
             </div>
             
             <!-- Posuv na další sekci -->
@@ -263,58 +269,277 @@
         </button>
     </header>
     
-    <!-- Ubytování (Pokoje a Apartmány) -->
-    <section id="ubytovani" class="py-32 px-6">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-40 reveal">
-                <h2 class="font-display text-4xl md:text-5xl mb-4">Naše Pokoje</h2>
-                <div class="w-16 h-0.5 bg-brand-accent mx-auto"></div>
-            </div>
-            
-            <!-- Pokoj -->
-            <div class="flex flex-col md:flex-row items-center mb-32 reveal">
-                <div class="w-full md:w-7/12 relative">
-                    <!-- Jemný stín pod fotkou pro oddělení od pozadí -->
-                    <div class="aspect-[4/3] bg-gray-200 overflow-hidden shadow-xl">
-                        <img src="img/zrekonstruovany-pokoj-penzion-namest.jpg" alt="Zrekonstruovaný pokoj penzion Náměšť" class="w-full h-full object-cover">
-                    </div>
+    <!-- Benefity a Pravidla (Info pruh) -->
+    <section class="py-16 bg-white border-b border-gray-100 z-10 relative">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-center reveal">
+                <!-- Parkování -->
+                <div class="group">
+                    <i class="fa-solid fa-square-parking text-3xl text-brand-accent mb-5 transform transition duration-500 group-hover:-translate-y-1"></i>
+                    <h4 class="font-display text-xl mb-2 text-brand-dark">Parkování zdarma</h4>
+                    <p class="text-gray-500 font-light text-sm">Pohodlné a bezpečné parkování je pro vás připraveno přímo před objektem.</p>
                 </div>
-                <!-- Box s textem přesahující přes fotku -->
-                <div class="w-full md:w-6/12 relative card-overlap bg-white p-10 md:p-14 shadow-2xl border-t-4 border-brand-accent">
-                    <p class="text-brand-accent text-sm uppercase tracking-widest mb-3 font-semibold">4x K dispozici</p>
-                    <h3 class="font-display text-4xl mb-6 text-brand-dark">Komfortní Pokoj</h3>
-                    <p class="text-gray-600 font-light leading-relaxed mb-8 text-lg">
-                        Prosvětlený, do detailu promyšlený prostor ideální pro páry i jednotlivce. Ať už Náměšť nad Oslavou navštívíte pracovně nebo za odpočinkem, náš penzion vám poskytne klidné a vysoce komfortní zázemí, které dalece převyšuje standardy běžné ubytovny.
-                    </p>
-                    <ul class="space-y-4 text-gray-800 font-light border-t border-gray-100 pt-6">
-                        <li class="flex items-center"><i class="fa-solid fa-shower text-brand-accent w-6"></i> Vlastní koupelna se sprchovým koutem</li>
-                        <li class="flex items-center"><i class="fa-solid fa-snowflake text-brand-accent w-6"></i> Osobní lednice na pokoji</li>
-                        <li class="flex items-center"><i class="fa-solid fa-utensils text-brand-accent w-6"></i> Přístup do plně vybavené sdílené kuchyně</li>
-                    </ul>
+                <!-- EV Nabíjení -->
+                <div class="group">
+                    <i class="fa-solid fa-charging-station text-3xl text-brand-accent mb-5 transform transition duration-500 group-hover:-translate-y-1"></i>
+                    <h4 class="font-display text-xl mb-2 text-brand-dark">Nabíjení elektroaut</h4>
+                    <p class="text-gray-500 font-light text-sm">K dispozici je moderní wallbox. Nabijte si svůj elektromobil pohodlně přes noc.</p>
+                </div>
+                <!-- Nekuřácké -->
+                <div class="group">
+                    <i class="fa-solid fa-ban-smoking text-3xl text-brand-accent mb-5 transform transition duration-500 group-hover:-translate-y-1"></i>
+                    <h4 class="font-display text-xl mb-2 text-brand-dark">Nekuřácké pokoje</h4>
+                    <p class="text-gray-500 font-light text-sm">Veškeré vnitřní prostory jsou nekuřácké. Pro kuřáky je vyhrazen prostor venku.</p>
+                </div>
+                <!-- Bez zvířat -->
+                <div class="group">
+                    <i class="fa-solid fa-paw text-3xl text-brand-accent mb-5 transform transition duration-500 group-hover:-translate-y-1"></i>
+                    <h4 class="font-display text-xl mb-2 text-brand-dark">Bez domácích zvířat</h4>
+                    <p class="text-gray-500 font-light text-sm">Pro garanci maximální čistoty a s ohledem na alergiky zvířata neubytováváme.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ubytování (Pokoje a Apartmány) -->
+    <section id="ubytovani" class="py-32 px-6 bg-[#FAF9F6]">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-24 reveal">
+                <h2 class="font-display text-4xl md:text-5xl mb-4 text-brand-dark">Naše Pokoje a Apartmány</h2>
+                <div class="w-16 h-0.5 bg-brand-accent mx-auto"></div>
+                <p class="mt-6 text-gray-500 font-light max-w-2xl mx-auto">Vyberte si z našich komfortních pokojů nebo plně vybavených apartmánů. Vše voní novotou po kompletní rekonstrukci (2025). Každá jednotka disponuje vlastní koupelnou.</p>
+            </div>
+
+            <!-- 1. Sekce: Pokoje (Sdílená kuchyň) -->
+            <div class="mb-20">
+                <div class="flex items-center mb-8 reveal">
+                    <h3 class="font-display text-3xl text-brand-dark">Pokoje</h3>
+                    <span class="ml-4 px-3 py-1 bg-gray-200 text-gray-600 text-xs uppercase tracking-widest font-semibold rounded-sm">Sdílená kuchyňka</span>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
+                    
+                    <!-- Pokoj 1 -->
+                    <div class="bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 group">
+                        <div class="aspect-[4/3] overflow-hidden bg-gray-100 relative">
+                            <img src="img/1/foto1.jpg" alt="Pokoj 1 - Ubytování Náměšť" class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-105">
+                            <div class="absolute top-4 right-4 bg-white/95 backdrop-blur px-3 py-1 text-sm font-display tracking-widest uppercase text-brand-dark shadow-sm">Pokoj 1</div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-4 pb-4 border-b border-gray-100">
+                                <span class="text-gray-400 font-light text-xs uppercase tracking-wider">Kapacita</span>
+                                <div class="flex items-center text-brand-accent">
+                                    <span class="font-medium text-lg tracking-wide">3 osoby</span>
+                                    <i class="fa-solid fa-user-group ml-2"></i>
+                                </div>
+                            </div>
+                            <ul class="space-y-3 text-sm font-light text-gray-600">
+                                <li class="flex items-start"><i class="fa-solid fa-shower mt-1 mr-3 text-gray-300 w-4 text-center"></i> Vlastní koupelna</li>
+                                <li class="flex items-start"><i class="fa-solid fa-kitchen-set mt-1 mr-3 text-gray-300 w-4 text-center"></i> Sdílená kuchyňka</li>
+                                <li class="flex items-start"><i class="fa-solid fa-snowflake mt-1 mr-3 text-gray-300 w-4 text-center"></i> Lednice na pokoji</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Pokoj 2 -->
+                    <div class="bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 group">
+                        <div class="aspect-[4/3] overflow-hidden bg-gray-100 relative">
+                            <img src="img/2/foto1.jpg" alt="Pokoj 2 - Ubytování Náměšť" class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-105">
+                            <div class="absolute top-4 right-4 bg-white/95 backdrop-blur px-3 py-1 text-sm font-display tracking-widest uppercase text-brand-dark shadow-sm">Pokoj 2</div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-4 pb-4 border-b border-gray-100">
+                                <span class="text-gray-400 font-light text-xs uppercase tracking-wider">Kapacita</span>
+                                <div class="flex items-center text-brand-accent">
+                                    <span class="font-medium text-lg tracking-wide">3 osoby</span>
+                                    <i class="fa-solid fa-user-group ml-2"></i>
+                                </div>
+                            </div>
+                            <ul class="space-y-3 text-sm font-light text-gray-600">
+                                <li class="flex items-start"><i class="fa-solid fa-shower mt-1 mr-3 text-gray-300 w-4 text-center"></i> Vlastní koupelna</li>
+                                <li class="flex items-start"><i class="fa-solid fa-kitchen-set mt-1 mr-3 text-gray-300 w-4 text-center"></i> Sdílená kuchyňka</li>
+                                <li class="flex items-start"><i class="fa-solid fa-snowflake mt-1 mr-3 text-gray-300 w-4 text-center"></i> Lednice na pokoji</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Pokoj 3 -->
+                    <div class="bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 group">
+                        <div class="aspect-[4/3] overflow-hidden bg-gray-100 relative">
+                            <img src="img/3/foto1.jpg" alt="Pokoj 3 - Ubytování Náměšť" class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-105">
+                            <div class="absolute top-4 right-4 bg-white/95 backdrop-blur px-3 py-1 text-sm font-display tracking-widest uppercase text-brand-dark shadow-sm">Pokoj 3</div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-4 pb-4 border-b border-gray-100">
+                                <span class="text-gray-400 font-light text-xs uppercase tracking-wider">Kapacita</span>
+                                <div class="flex items-center text-brand-accent">
+                                    <span class="font-medium text-lg tracking-wide">2 osoby</span>
+                                    <i class="fa-solid fa-user-group ml-2"></i>
+                                </div>
+                            </div>
+                            <ul class="space-y-3 text-sm font-light text-gray-600">
+                                <li class="flex items-start"><i class="fa-solid fa-shower mt-1 mr-3 text-gray-300 w-4 text-center"></i> Vlastní koupelna</li>
+                                <li class="flex items-start"><i class="fa-solid fa-kitchen-set mt-1 mr-3 text-gray-300 w-4 text-center"></i> Sdílená kuchyňka</li>
+                                <li class="flex items-start"><i class="fa-solid fa-snowflake mt-1 mr-3 text-gray-300 w-4 text-center"></i> Lednice na pokoji</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Pokoj 4 -->
+                    <div class="bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 group">
+                        <div class="aspect-[4/3] overflow-hidden bg-gray-100 relative">
+                            <img src="img/4/foto1.jpg" alt="Pokoj 4 - Ubytování Náměšť" class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-105">
+                            <div class="absolute top-4 right-4 bg-white/95 backdrop-blur px-3 py-1 text-sm font-display tracking-widest uppercase text-brand-dark shadow-sm">Pokoj 4</div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-4 pb-4 border-b border-gray-100">
+                                <span class="text-gray-400 font-light text-xs uppercase tracking-wider">Kapacita</span>
+                                <div class="flex items-center text-brand-accent">
+                                    <span class="font-medium text-lg tracking-wide">3 osoby</span>
+                                    <i class="fa-solid fa-user-group ml-2"></i>
+                                </div>
+                            </div>
+                            <ul class="space-y-3 text-sm font-light text-gray-600">
+                                <li class="flex items-start"><i class="fa-solid fa-shower mt-1 mr-3 text-gray-300 w-4 text-center"></i> Vlastní koupelna</li>
+                                <li class="flex items-start"><i class="fa-solid fa-kitchen-set mt-1 mr-3 text-gray-300 w-4 text-center"></i> Sdílená kuchyňka</li>
+                                <li class="flex items-start"><i class="fa-solid fa-snowflake mt-1 mr-3 text-gray-300 w-4 text-center"></i> Lednice na pokoji</li>
+                            </ul>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
-            <!-- Apartmán -->
-            <div class="flex flex-col md:flex-row-reverse items-center reveal">
-                <div class="w-full md:w-7/12 relative">
-                    <div class="aspect-[4/3] bg-gray-200 overflow-hidden shadow-xl">
-                        <img src="img/apartman-ubytovani-namest-nad-oslavou.jpg" alt="Apartmán ubytování Náměšť nad Oslavou" class="w-full h-full object-cover">
-                    </div>
+            <!-- 2. Sekce: Apartmány (Vlastní kuchyň) -->
+            <div>
+                <div class="flex items-center mb-8 reveal" style="transition-delay: 100ms;">
+                    <h3 class="font-display text-3xl text-brand-dark">Apartmány</h3>
+                    <span class="ml-4 px-3 py-1 bg-brand-accent/10 text-brand-accent text-xs uppercase tracking-widest font-semibold rounded-sm">Vlastní kuchyňka</span>
                 </div>
-                <!-- Box s textem přesahující přes fotku z druhé strany -->
-                <div class="w-full md:w-6/12 relative card-overlap-reverse bg-white p-10 md:p-14 shadow-2xl border-t-4 border-[#8CB4D6]">
-                    <p class="text-[#8CB4D6] text-sm uppercase tracking-widest mb-3 font-semibold">4x K dispozici</p>
-                    <h3 class="font-display text-4xl mb-6 text-brand-dark">Prostorný Apartmán</h3>
-                    <p class="text-gray-600 font-light leading-relaxed mb-8 text-lg">
-                        Hledáte prostorné ubytování v Náměšti nad Oslavou s naprostým soukromím? Naše apartmány představují ideální volbu pro rodiny i delší pobyty. Nabízí štědrý prostor kombinující stylový obývací pokoj s plnohodnotným vlastním zázemím.
-                    </p>
-                    <ul class="space-y-4 text-gray-800 font-light border-t border-gray-100 pt-6">
-                        <li class="flex items-center"><i class="fa-solid fa-bath text-[#8CB4D6] w-6"></i> Prostorná soukromá koupelna</li>
-                        <li class="flex items-center"><i class="fa-solid fa-kitchen-set text-[#8CB4D6] w-6"></i> Vlastní vybavená kuchyňka</li>
-                        <li class="flex items-center"><i class="fa-solid fa-bed text-[#8CB4D6] w-6"></i> Ideální pro dlouhodobé pobyty a rodiny</li>
-                    </ul>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal" style="transition-delay: 200ms;">
+                    
+                    <!-- Apartmán 5 -->
+                    <div class="bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 group">
+                        <div class="aspect-[4/3] overflow-hidden bg-gray-100 relative">
+                            <img src="img/5/foto1.jpg" alt="Apartmán 5 - Ubytování Náměšť" class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-105">
+                            <div class="absolute top-4 right-4 bg-white/95 backdrop-blur px-3 py-1 text-sm font-display tracking-widest uppercase text-brand-dark shadow-sm">Apt 5</div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-4 pb-4 border-b border-gray-100">
+                                <span class="text-gray-400 font-light text-xs uppercase tracking-wider">Kapacita</span>
+                                <div class="flex items-center text-brand-accent">
+                                    <span class="font-medium text-lg tracking-wide">5 osob</span>
+                                    <i class="fa-solid fa-user-group ml-2"></i>
+                                </div>
+                            </div>
+                            <ul class="space-y-3 text-sm font-light text-gray-600">
+                                <li class="flex items-start"><i class="fa-solid fa-bath mt-1 mr-3 text-gray-300 w-4 text-center"></i> Vlastní koupelna</li>
+                                <li class="flex items-start font-medium text-gray-800"><i class="fa-solid fa-fire-burner mt-1 mr-3 text-brand-accent w-4 text-center"></i> Vlastní kuchyňka</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Apartmán 6 -->
+                    <div class="bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 group">
+                        <div class="aspect-[4/3] overflow-hidden bg-gray-100 relative">
+                            <img src="img/6/foto1.jpg" alt="Apartmán 6 - Ubytování Náměšť" class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-105">
+                            <div class="absolute top-4 right-4 bg-white/95 backdrop-blur px-3 py-1 text-sm font-display tracking-widest uppercase text-brand-dark shadow-sm">Apt 6</div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-4 pb-4 border-b border-gray-100">
+                                <span class="text-gray-400 font-light text-xs uppercase tracking-wider">Kapacita</span>
+                                <div class="flex items-center text-brand-accent">
+                                    <span class="font-medium text-lg tracking-wide">2 osoby</span>
+                                    <i class="fa-solid fa-user-group ml-2"></i>
+                                </div>
+                            </div>
+                            <ul class="space-y-3 text-sm font-light text-gray-600">
+                                <li class="flex items-start"><i class="fa-solid fa-bath mt-1 mr-3 text-gray-300 w-4 text-center"></i> Vlastní koupelna</li>
+                                <li class="flex items-start font-medium text-gray-800"><i class="fa-solid fa-fire-burner mt-1 mr-3 text-brand-accent w-4 text-center"></i> Vlastní kuchyňka</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Apartmán 7 -->
+                    <div class="bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 group">
+                        <div class="aspect-[4/3] overflow-hidden bg-gray-100 relative">
+                            <img src="img/7/foto1.jpg" alt="Apartmán 7 - Ubytování Náměšť" class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-105">
+                            <div class="absolute top-4 right-4 bg-white/95 backdrop-blur px-3 py-1 text-sm font-display tracking-widest uppercase text-brand-dark shadow-sm">Apt 7</div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-4 pb-4 border-b border-gray-100">
+                                <span class="text-gray-400 font-light text-xs uppercase tracking-wider">Kapacita</span>
+                                <div class="flex items-center text-brand-accent">
+                                    <span class="font-medium text-lg tracking-wide">3 osoby</span>
+                                    <i class="fa-solid fa-user-group ml-2"></i>
+                                </div>
+                            </div>
+                            <ul class="space-y-3 text-sm font-light text-gray-600">
+                                <li class="flex items-start"><i class="fa-solid fa-bath mt-1 mr-3 text-gray-300 w-4 text-center"></i> Vlastní koupelna</li>
+                                <li class="flex items-start font-medium text-gray-800"><i class="fa-solid fa-fire-burner mt-1 mr-3 text-brand-accent w-4 text-center"></i> Vlastní kuchyňka</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Apartmán 8 (Velký) -->
+                    <div class="bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 group">
+                        <div class="aspect-[4/3] overflow-hidden bg-gray-100 relative">
+                            <img src="img/8/foto1.jpg" alt="Apartmán 8 - Ubytování Náměšť" class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-105">
+                            <div class="absolute top-4 right-4 bg-white/95 backdrop-blur px-3 py-1 text-sm font-display tracking-widest uppercase text-brand-dark shadow-sm">Apt 8</div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-4 pb-4 border-b border-gray-100">
+                                <span class="text-gray-400 font-light text-xs uppercase tracking-wider">Kapacita</span>
+                                <div class="flex items-center text-brand-accent">
+                                    <div class="text-right">
+                                        <div class="font-medium text-lg tracking-wide leading-none">5 osob</div>
+                                        <div class="text-[10px] text-gray-400 uppercase tracking-widest mt-1">2+3 lůžka</div>
+                                    </div>
+                                    <i class="fa-solid fa-user-group ml-3"></i>
+                                </div>
+                            </div>
+                            <ul class="space-y-3 text-sm font-light text-gray-600">
+                                <li class="flex items-start"><i class="fa-solid fa-door-open mt-1 mr-3 text-gray-300 w-4 text-center"></i> 2 oddělené pokoje</li>
+                                <li class="flex items-start"><i class="fa-solid fa-bath mt-1 mr-3 text-gray-300 w-4 text-center"></i> Vlastní koupelna</li>
+                                <li class="flex items-start font-medium text-gray-800"><i class="fa-solid fa-fire-burner mt-1 mr-3 text-brand-accent w-4 text-center"></i> Vlastní kuchyňka</li>
+                            </ul>
+                        </div>
+                    </div>
+
                 </div>
             </div>
+
+        </div>
+    </section>
+
+    <!-- Přechodový video pás z dronu -->
+    <section class="relative w-full h-[400px] md:h-[550px] overflow-hidden border-t border-b border-gray-100 reveal">
+        <!-- Jemné ztmavení (ponecháno pouze pro zachování filmového vzhledu) -->
+        <div class="absolute inset-0 bg-brand-dark/10 z-10 pointer-events-none"></div>
+        
+        <!-- Video na pozadí -->
+        <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover z-0">
+            <source src="penzion-namest.mp4" type="video/mp4">
+            Váš prohlížeč nepodporuje přehrávání videa.
+        </video>
+    </section>
+
+    <!-- Přechodový video pás z dronu -->
+    <section class="relative w-full h-[400px] md:h-[550px] overflow-hidden reveal">
+        <!-- Jemné ztmavení pro luxusnější vzhled a lepší čitelnost textu -->
+        <div class="absolute inset-0 bg-brand-dark/20 z-10 pointer-events-none"></div>
+        
+        <!-- Video na pozadí -->
+        <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover z-0">
+            <source src="penzion-namest.mp4" type="video/mp4">
+            Váš prohlížeč nepodporuje přehrávání videa.
+        </video>
+
+        <!-- Dekorativní text přes video (volitelný, krásně to sekci oživí) -->
+        <div class="absolute inset-0 z-20 flex flex-col items-center justify-center pointer-events-none text-center px-4">
+            <h3 class="font-display text-4xl md:text-6xl text-white font-medium drop-shadow-lg tracking-wide mb-4">Penzion Fontána</h3>
+            <p class="text-white/90 text-sm md:text-xl font-light uppercase tracking-[0.3em] drop-shadow-md">Z ptačí perspektivy</p>
         </div>
     </section>
 
